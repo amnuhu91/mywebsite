@@ -4,12 +4,14 @@ from django.db import models
 
 class PhoneContact(models.Model):
     phone = models.CharField(max_length=14, verbose_name='Phone Number')
+    status                      = models.BooleanField(default=True)
     def __str__(self):
         return self.phone
 
 
 class EmailContact(models.Model):
     email = models.EmailField(verbose_name="email", unique=True)
+    status                      = models.BooleanField(default=True)
     def __str__(self):
         return self.email
 
@@ -38,6 +40,7 @@ class Articles(models.Model):
 
 class CourseParent(models.Model):
     course_name                 = models.CharField(max_length=200, blank=False, null=False)
+    status                      = models.BooleanField(default=True)
     course_desc                 = models.TextField()
     date_added                  = models.DateTimeField(auto_now_add=True)
     date_updated                = models.DateTimeField(auto_now=True)

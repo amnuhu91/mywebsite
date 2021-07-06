@@ -5,15 +5,17 @@ $(document).ready(function(){
   axios.get("http://127.0.0.1:8000/home/email/")
   .then((res)=>{
     data = res.data;
-    //console.log(data);
+    console.log(data);
     for (let obj in data){
      // console.log(`${data[obj].email}`);
      let lst=''
      
-     lst+=`
-              <li class="list-group-item"><i class="fa fa-envelope me-3" ></i>${data[obj].email}</li>
-              
-            `
+     if (data[obj].status !=false){
+      lst+=`
+      <li class="list-group-item"><i class="fa fa-envelope me-3" ></i>${data[obj].email}</li>
+      
+    `
+     }
 
       $('#emailcontact').append(lst)
     }
@@ -32,10 +34,12 @@ $(document).ready(function(){
       //console.log(`${data[obj].phone}`);
      let lst=''
      
-     lst+=`
-              <li class="list-group-item"><i class="fa fa-mobile me-3" ></i>${data[obj].phone}</li>
-              
-            `
+     if (data[obj].status != false ){
+      lst+=`
+      <li class="list-group-item"><i class="fa fa-mobile me-3" ></i>${data[obj].phone}</li>
+      
+    `
+     }
 
       $('#emailcontact').append(lst)
     }
@@ -46,13 +50,13 @@ $(document).ready(function(){
     console.log(err);
   });
 
-console.log('all request');
+//console.log('all request');
   //all
   const email_re = axios.get("http://127.0.0.1:8000/home/email/")
   const phone_re = axios.get("http://127.0.0.1:8000/home/phone/")
   axios.all([email_re,phone_re]).then(axios.spread((res1,res2)=>{
-    console.log(res1.data);
-    console.log(res2.data);
+    // console.log(res1.data);
+    // console.log(res2.data);
   }));
 });
 

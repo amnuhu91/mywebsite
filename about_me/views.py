@@ -9,7 +9,7 @@ from about_me.models import (EmailContact, PhoneContact, Myself,
 def home_view(request):
 	if request.method=='GET':
 		context = {}
-		my_info = Myself.objects.latest('date_created')#.order_by('date_created')
+		my_info = Myself.objects.latest('updated_at')#.order_by('date_created')
 		back_end = BackEndCourse.objects.all()
 		fron_end = FrontEndCourse.objects.all()
 		learn = Learn.objects.all()

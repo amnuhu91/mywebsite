@@ -13,9 +13,13 @@
               <h6 class="text-uppercase fw-bold mb-0">Learn</h6>
               <ul style="list-style-type:circle;">
                 {% for course in learn %}
+                {% if course.status %}
                 <li><a href="#!" class="text-reset">{{course.course_name}}</a></li>
+                {% endif %}
                   {% empty %}
-                  <h1>no course</h1>
+                  <ul style="list-style-type: inherit;">
+                    <li>Coming soon</li>
+                  </ul>
                 {% endfor %}
               </ul>
           </div>
@@ -29,7 +33,9 @@
             </h6>
             <ul style="list-style-type:circle;">
               {% for link in links %}
-              <li><a href="#!" class="text-reset">{{link.course_name}}</a></li>
+                {% if link.status  %}
+                <li><a href="#!" class="text-reset">{{link.course_name}}</a></li>
+                {%endif%}
                 {% empty %}
                 <h1>no course</h1>
               {% endfor %}
