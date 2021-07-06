@@ -1,54 +1,47 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start   bg-light text-muted  " >
+<footer class="text-center text-lg-start   bg-dark text-light   px-0" >
    
   
     <!-- Section: Links  -->
     <section class="">
-      <div class="container text-center text-md-start mt-5">
+      <div class="container text-center text-md-start mt-5 ">
         <!-- Grid row -->
-        <div class="row mt-3">
+        <div class="row mt-3 ">
          
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-0">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-0">
-              Learn
-            </h6>
-            
-            <p>
-              <a href="#!" class="text-reset">Basic and advance Excel</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Microsoft PowerPoint</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Mysql</a>
-            </p>
-            <p>
-                <a href="#!" class="text-reset">Javascript</a>
-              </p>
+              <h6 class="text-uppercase fw-bold mb-0">Learn</h6>
+              <ul style="list-style-type:circle;">
+                {% for course in learn %}
+                <li><a href="#!" class="text-reset">{{course.course_name}}</a></li>
+                  {% empty %}
+                  <h1>no course</h1>
+                {% endfor %}
+              </ul>
           </div>
           <!-- Grid column -->
   
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-0">
+          <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-0" >
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-0">
               Useful links
             </h6>
-            <p>
-              <a href="#" class="text-reset">Training</a>
-            </p>
-            <p>
-              <a href="#" class="text-reset">Free learning stuffs</a>
-            </p>
+            <ul style="list-style-type:circle;">
+              {% for link in links %}
+              <li><a href="#!" class="text-reset">{{link.course_name}}</a></li>
+                {% empty %}
+                <h1>no course</h1>
+              {% endfor %}
+            </ul>
+           
             
           </div>
           <!-- Grid column -->
   
           <!-- Grid column -->
-          <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
+          <!-- <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mb-md-0 mb-4">
+            
             <h6 class="text-uppercase fw-bold mb-4">
               Contact
             </h6>
@@ -59,7 +52,7 @@
             </p>
             <p><i class="fas fa-phone me-3"></i> +2348064790955</p>
             <p><i class="fas fa-print me-3"></i> +2348162472682</p>
-          </div>
+          </div> -->
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <h6 class="text-uppercase fw-bold mb-4">Connect with me on:</h6>
               

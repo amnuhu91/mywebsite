@@ -3,7 +3,7 @@
 {% block content %}
 <!-- {{ user.first_name|default:'Guest' |upper}}!
 <h1>hello</h1> -->
-	<div class="container-fluid">
+	
 		<div class="row gx-0 pt-5">
 			<div class="col-sm-12 col-md-12 col-lg-7" >
 				<div class="row gx-0">
@@ -49,26 +49,32 @@
 							<div class="card">
 								<div class="card-header"><h4><b><i>services</i></b></h4></div>
 								<ul class="list-group list-group-flush">
-									<li class="list-group-item">Basic and andvance python</li>
+									
 									<li class="list-group-item">
 										<div class="card-header"><h6><b>Front End Techs.</b></h6></div>
 										<ul class="list-group list-group-flush"> 
-											<li class="list-group-item"><a href="#" class="card-link">Html</a></li>
-											<li class="list-group-item"><a href="#" class="card-link">Css</a></li>
-											<li class="list-group-item"><a href="#" class="card-link">Javascript</a></li>
+											{% for course in front_end %}
+											<li class="list-group-item"><a href="#" class="card-link">{{course.course_name}}</a></li>
+											{%empty%}
+											{% endfor %}
 										</ul>
 									</li>
 									<li class="list-group-item">
 										<div class="card-header"><h6><b>Back end Techs.</b></h6></div>
 										<ul class="list-group list-group-flush">
-											<li class="list-group-item"><a href="#" class="card-link">Mysql</a></li>
+											<!-- <li class="list-group-item"><a href="#" class="card-link">Mysql</a></li>
 											<li class="list-group-item"><a href="#" class="card-link">Django</a> </li>
-											<li class="list-group-item"><a href="#" class="card-link">php</a></li>
+											<li class="list-group-item"><a href="#" class="card-link">php</a></li> -->
+											{% for course in back_end %}
+											<li class="list-group-item"><a href="#" class="card-link">{{course.course_name}}</a></li>
+											{%empty%}
+											{% endfor %}
 										</ul>
 									</li>
 									<li class="list-group-item"><a href="#" class="">Mobile app Development</a></li>
 									
-								  </ul>
+								  
+								</ul>
 							</div>
 						</div>
 						<div class="col-sm-12 col-md-12 col-lg-6 px-0">
@@ -88,5 +94,5 @@
 		<!-- <div class="row gx-0">
 			<div class="col-sm-12 col-md-12 col-lg-12" style="width: 100%; height: 1000px; background-color: aquamarine;">check</div>
 		</div> -->
-	</div>
+	
 {% endblock content %}

@@ -34,3 +34,29 @@ class Articles(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class CourseParent(models.Model):
+    course_name                 = models.CharField(max_length=200, blank=False, null=False)
+    course_desc                 = models.TextField()
+    date_added                  = models.DateTimeField(auto_now_add=True)
+    date_updated                = models.DateTimeField(auto_now=True)
+
+    # def __str__(self):
+    #     return self.course_name
+    class Meta:
+        ordering = ['-date_updated']
+
+
+class BackEndCourse(CourseParent):
+    pass
+
+class FrontEndCourse(CourseParent):
+    pass
+class Learn(CourseParent):
+    pass
+class UsefulLinks(CourseParent):
+    pass
+
+
+
