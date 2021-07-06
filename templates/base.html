@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+                  <meta charset="utf-8" >
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+                 
+                  <title>{% block title %}{{title}} {%  endblock title %}</title>
+                  <!--Boot strap css -->
+                  {% block bootsrap  %}
+                            <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" >
+                            <!-- <link rel="stylesheet" href="{% static 'custom.css1' %}" > -->
+
+                            <link rel="stylesheet" href="{% static 'MDB5/css/mdb.min.css' %}" >
+                            <!-- Font Awesome -->
+
+
+                           
+
+                            
+                            <!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
+                            <script type="text/javascript" src="{% static 'js/jquery-3.6.0.js' %}"></script>
+                           
+                            <script src="https://kit.fontawesome.com/1bc35a67e2.js" crossorigin="anonymous"></script>
+                            
+                  {% endblock bootsrap  %}
+
+                  <!--custom  css -->
+                  <!-- {% block custom_css  %}
+                  <link rel="stylesheet" type="text/css" href="{% static "index.css" %}" />
+                  <link rel="stylesheet" href="{% static '' %}">
+
+                  {% endblock custom_css  %} -->
+    </head>
+    {% block navigation %}
+    {% include "nav.html" %}
+    {% endblock navigation %}
+ 
+    <body class="container-fluid">
+      
+
+        <div class="main " >
+          {% block content %}
+            <div class="card">
+              <div class="card-body">
+                test23e
+              </div>
+            </div>
+              
+          {% endblock content %}
+        </div>
+       {% block footer %}
+       {% include 'footer.html' %}
+       {% endblock footer %}
+
+
+
+          
+          
+          {% block jss%}
+                
+                
+                <script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+                <script type="text/javascript" src="{% static 'MDB5/js/mdb.min.js' %}"></script>
+                <script type="text/javascript" src="{% static 'js/axios.min.js' %}"></script>
+                <script type="text/javascript" src="{% static 'js/myjs.js' %}"></script>
+                
+
+               
+          {% endblock jss %}
+        </body>
+</html>            
+
+              
+
+         
+          
+    
+
