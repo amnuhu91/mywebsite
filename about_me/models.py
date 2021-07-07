@@ -45,8 +45,8 @@ class CourseParent(models.Model):
     date_added                  = models.DateTimeField(auto_now_add=True)
     date_updated                = models.DateTimeField(auto_now=True)
 
-    # def __str__(self):
-    #     return self.course_name
+    def __str__(self):
+        return self.course_name
     class Meta:
         ordering = ['-date_updated']
 
@@ -60,6 +60,14 @@ class Learn(CourseParent):
     pass
 class UsefulLinks(CourseParent):
     pass
+
+class FrontEndTopics(models.Model):
+    course_name            = models.ForeignKey(FrontEndCourse, on_delete = models.CASCADE)
+    topic_name             = models.CharField(max_length=200, blank=True, null=True)
+    topic_desc             = models.TextField(blank=True, null=True)
+    topic_video            = models.FileField(blank=True, null=True)
+    created_on             = models.DateTimeField(auto_now_add=True)
+    updated_at             = models.DateTimeField(auto_now=True)
 
 
 

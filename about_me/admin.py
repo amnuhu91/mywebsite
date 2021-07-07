@@ -1,7 +1,7 @@
 from django.contrib import admin
 from about_me.models import (PhoneContact, EmailContact, Myself,
                              Articles, BackEndCourse, FrontEndCourse
-                             , Learn, UsefulLinks)
+                             , Learn, UsefulLinks, FrontEndTopics)
 
 # Register your models here.
 
@@ -14,7 +14,7 @@ class BackEndadmin(admin.ModelAdmin):
     list_editable = ('status',)
     list_display_links =[ 'course_name']
 class FrontEndadmin(admin.ModelAdmin):
-    list_display=('course_name','course_desc','date_added','date_updated','status')
+    list_display=('pk','course_name','course_desc','date_added','date_updated','status')
     list_editable=('status',)
     list_display_links =[ 'course_name']
 class Learnadmin(admin.ModelAdmin):
@@ -32,8 +32,10 @@ class Phoneadmin(admin.ModelAdmin):
 class Emailadmin(admin.ModelAdmin):
     list_display = ('email','status')
     list_editable = ('status',)
+class FrontEndTopicsadmin(admin.ModelAdmin):
+    list_display = ('course_name','topic_name','topic_desc')
    
-
+admin.site.register(FrontEndTopics, FrontEndTopicsadmin)
 admin.site.register(Myself, myseladmin)
 admin.site.register(UsefulLinks,UsefulLinksadmin)
 admin.site.register(FrontEndCourse, FrontEndadmin)

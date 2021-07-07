@@ -2,16 +2,30 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from about_me.models import (EmailContact, PhoneContact, Myself,
 								BackEndCourse, FrontEndCourse,
-								Learn,UsefulLinks
+								Learn,UsefulLinks,FrontEndTopics
 							)
 
+
+#class import
+from django.views.generic.detail import DetailView
+
+
+
 # Create your views here.
+
+	
+		
+	
+	
+		
+
 def home_view(request):
 	if request.method=='GET':
 		context = {}
 		my_info = Myself.objects.latest('updated_at')#.order_by('date_created')
 		back_end = BackEndCourse.objects.all()
 		fron_end = FrontEndCourse.objects.all()
+		
 		learn = Learn.objects.all()
 		links = UsefulLinks.objects.all()
 		print(my_info)
@@ -51,3 +65,25 @@ def phone_contact_view(request):
 		
 		return JsonResponse({'data':'No Phone contact right now'})
 
+
+
+
+
+
+
+
+
+class FrontCourseDetail(DetailView):
+	model = FrontEndCourse
+	context_object_name = 'course'
+
+
+	def get_context_data(self,**kwargs):
+		pk= self.kwargs.get('pk')
+		context = super().get_context_data(**kwargs)
+		context['learn']= Learn.objects.all()
+		context['links']=  UsefulLinks.objects.all()
+
+		context['ftopics'] =  FrontEndTopics.objects.filter(course_name__exact=pk)
+		return context
+	
