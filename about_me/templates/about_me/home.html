@@ -56,7 +56,7 @@
 											
 											{% for course in front_end %}
 											{% if course.status  %}
-												<li class="list-group-item"><a href="#" class="card-link">{{course.course_name}}</a></li>
+												<li class="list-group-item"><a href="{% url 'about_me:course-detail' pk=course.pk %} " class="card-link">{{course.course_name}}</a></li>
 												
 												
 											{% endif %}

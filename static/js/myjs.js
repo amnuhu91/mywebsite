@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  $('#topic').accordion();
+  
   console.log('loaded');
 
   //get email contact
@@ -59,6 +61,8 @@ $(document).ready(function(){
     // console.log(res1.data);
     // console.log(res2.data);
   }));
+  
+  
 });
 
 
