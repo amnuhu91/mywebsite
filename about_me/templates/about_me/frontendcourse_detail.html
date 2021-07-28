@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <h1>{{ course.course_name }}</h1>
+<h1>{{ course.course_desc }}</h1> -->
+<div class="row gy-2 px-2 pt-2 ">
+    <div class="col-sm-12 col-md-12 col-lg-3" style="border: 1px solid rgb(49, 40, 40);">
+        <div class="row">
+            <div class="col-sm-12 col-sm-12 col-lg-12 text-center fs-2 fw-bolder" style="background-color: #1A237E; color: white;">123</div>
+            <div class="col-sm-12 col-sm-12 col-lg-12" style="">123</div>
+
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-6" >
+        <div class="row">
+            <div class="col-sm-12 col-sm-12 col-lg-12 text-center display-6 text-muted fw-bolder text-uppercase" >{{course.course_name}}</div>
+            <div class="col-sm-12 col-sm-12 col-lg-12" style="">
+                <h1 class="fs-2 fw-bold text-start">Description</h1>
+                <p>{{course.course_desc}}</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-3 overflow-auto" style="border: 1px solid rgb(49, 40, 40); height: 67.5vh;">
+        <div class="row">
+            <div class="col-sm-12 col-sm-12 col-lg-12 text-center fs-2 fw-bolder text-muted " style="background-color: #cfcfd4; color: white;">syllabus</div>
+            <div class="col-sm-12 col-sm-12 col-lg-12 px-0 " style="">
+                
+
+                <div class="card">
+                    {% if ftopics %}
+                                    <ul class="list-group list-group-flush">
+                                        
+                                            
+                                                    
+                                                        {% for topic in ftopics %}
+                                                            
+                                                                    <li class="list-group-item" ><a  href="#" class="card-link">
+                                                                        
+                                                                            {{topic.topic_name}}</a>
+                                                                            
+                                                                                
+                                                                            
+                                                                        
+                                                                    </li>
+                                                        {% endfor %}
+                                                    
+                                            
+                                            
+                                                
+                                            
+                                        
+                                    </ul>
+                            {% else %}
+                            <h3>no topics</h3>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class=" col-sm-12 col-md-12 col-lg-12 overflow-auto" style="border: 2px solid black; height: 15vh;">
+        <h3>test</h3>
+        <div class="" style="height: 500px; border: 2px solid green;"></div>
+        
+    </div> -->
+
+</div>
+{% endblock content %}
