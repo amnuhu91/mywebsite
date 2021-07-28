@@ -7,4 +7,8 @@ urlpatterns = [
 	path('email/',email_contact_view, name='email'),
 	path('phone/',phone_contact_view, name='phone'),
 	path('course/<int:pk>/',FrontCourseDetail.as_view(), name='course-detail'),
+<<<<<<< HEAD
 ]
+=======
+]
+>>>>>>> 72619daeae5d090ec42b78f1e7417169e83f19d9
