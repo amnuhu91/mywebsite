@@ -33,12 +33,14 @@ ALLOWED_HOSTS = [ '*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'crispy_forms',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
-    'about_me.apps.AboutMeConfig'
+    'about_me.apps.AboutMeConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from about_me.models import (EmailContact, PhoneContact, Myself,
 								BackEndCourse, FrontEndCourse,
@@ -16,12 +17,14 @@ from django.views.generic.detail import DetailView
 	
 		
 	
-	
-		
-
+learn = Learn.objects.all()
+links = UsefulLinks.objects.all()	
+ext_context={'learn':learn,'links':links}		
+#@login_required
 def home_view(request):
 	if request.method=='GET':
-		context = {}
+		
+		context = {'test':'<h1>hello</h1>'}
 		my_info = Myself.objects.latest('updated_at')#.order_by('date_created')
 		back_end = BackEndCourse.objects.all()
 		fron_end = FrontEndCourse.objects.all()
