@@ -18,10 +18,12 @@ class UpdateBlog(UpdateView):
 
 class ListBlog(ListView):
     model = Blog
+  
     extra_context= ext_context
     paginate_by = 5
 class BlogView(DetailView):
     model = Blog
+    #related_post = Blog.objects.exclude(title=title)
     extra_context= ext_context
     pk_url_kwarg = 'pk'
     slug_url_kwarg = 'title'
