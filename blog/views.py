@@ -3,15 +3,23 @@ from django.views.generic import TemplateView, CreateView, ListView, UpdateView,
 from django.db.models import Q
 from blog.models import Blog
 from about_me.views import *
+from django.contrib.auth.mixins import LoginRequiredMixin
 #class BlogHome(TemplateView):
-class AddBlog(CreateView):
+
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+class SuperUserRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+
+    def test_func(self):
+        return self.request.user.is_superuser
+class AddBlog(SuperUserRequiredMixin, CreateView):
     model = Blog
     success_url ='/blog/add-blog'
     extra_context= ext_context
     fields  = ('title','body','image')
 
 
-class UpdateBlog(UpdateView):
+class UpdateBlog(SuperUserRequiredMixin,UpdateView):
     model = Blog
     fields =  ('title','body','image')
     success_url ='/blog/add-blog'
@@ -42,6 +50,4 @@ class BlogView(DetailView):
                 print(i)
                 pass
         context['related']  = Blog.objects.filter(Q(title__icontains=rel[0]) | Q(title__icontains=rel[1])).filter(~Q(pk=self.kwargs.get('pk')))
-        #rel= Blog.objects.exclude(pk=self.kwargs.get('pk')
-        #print(context)
         return context
