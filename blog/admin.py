@@ -3,4 +3,8 @@ from blog.models import Blog
 # Register your models here.
 
 
-admin.site.register(Blog)
+
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('title','slug')
+
+admin.site.register(Blog, BlogAdmin)

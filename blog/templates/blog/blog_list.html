@@ -4,7 +4,7 @@
 
     <div class="row py-0">
         
-        <div class="col-sm-12 col-md-8 offset-1 overflow-auto" style="height:70vh;">
+        <div class="col-sm-12 col-md-9 offset-1 overflow-auto" style="height:70vh;">
             <ul class="list-group">
                 {% for object in object_list %}
                 <li class="list-group-item">
@@ -27,7 +27,7 @@
                               <p class="card-text">{{object.body | truncatewords:20}}
                                 <div class="row">
                                   <div class="col-sm-12 col-md-5">
-                                    <a href="{% url 'blog:read' pk=object.pk title=object.title %}"><br>Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+                                    <a href="{% url 'blog:read' pk=object.pk title=object.slug %}"><br>Read More <i class="fas fa-long-arrow-alt-right"></i></a>
                                   </div>
                                   <div class="offset-2"></div>
                                   {% if request.user.is_authenticated %}

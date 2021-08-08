@@ -17,20 +17,37 @@
         
         <p class="card-text">{{object.body}}</p>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+    </div><br>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <p class="h6 text-muted"><u>Related Post</u></p>
+        <div class="card">
+          
+            
+          
+          <ul class=" list-unstyle">
+            {% for related_post in related %}
+            <a href="{% url 'blog:read' pk=related_post.pk title=related_post.slug %}"><li class="small">{{related_post.title}}</li></a>
+            {% empty %}
+            <p class="h6">No related post for this article</p>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-sm-12 c0l-md-12 col-lg-3 pt-5" style="height: 50vh; 
    position: -webkit-sticky;position: sticky; top:0; padding-top:0;">
-    <h3 class="h6 text-muted">You can also read:</h3>
+    <h3 class="h6 text-muted"><ul>You can also read.</ul></h3>
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        {% for related_post in additional_post %}
+        <li class="list-group-item" ><a href="{% url 'blog:read' pk=related_post.pk title=related_post.slug %}" class="small">{{related_post.title}}</a></li>
+        {% empty %}
+        <h6 class="text-muted">no related post</h6>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 </div>
   {% endblock content %}

@@ -14,7 +14,7 @@ $(document).ready(function(){
      
      if (data[obj].status !=false){
       lst+=`
-      <li class="list-group-item"><i class="fa fa-envelope me-3" ></i>${data[obj].email}</li>
+      <li class="list-group-item" style="font-size:10"><small><i class="fa fa-envelope me-3" ></i>${data[obj].email}</small></li>
       
     `
      }
@@ -39,7 +39,7 @@ $(document).ready(function(){
      
      if (data[obj].status != false ){
       lst+=`
-      <li class="list-group-item"><i class="fa fa-mobile me-3" ></i>${data[obj].phone}</li>
+      <li class="list-group-item" style="font-size:10"><small><i class="fa fa-mobile me-3" ></i>${data[obj].phone}</small></li>
       
     `
      }
