@@ -4,7 +4,7 @@ from about_me.models import (EmailContact, PhoneContact, Myself,
 								BackEndCourse, FrontEndCourse,
 								Learn,UsefulLinks,FrontEndTopics
 							)
-from blog.views import (AddBlog, UpdateBlog, ListBlog, BlogView)
+from blog.views import (AddBlog, UpdateBlog, ListBlog, BlogView, DeleteBlog)
 from blog.models import Blog
 blogs = Blog.objects.all()
 
@@ -24,4 +24,5 @@ urlpatterns = [
     path('add-blog/', AddBlog.as_view(), name='add-blog'),
     path('update-blog/<int:pk>', UpdateBlog.as_view(pk_url_kwarg = 'pk'), name='update-blog'),
     path('read/<int:pk>/<str:title>', BlogView.as_view(), name='read'),
+    path('delete/<int:pk>/<str:title>', DeleteBlog.as_view(), name='delete'),
 ]

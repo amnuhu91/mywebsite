@@ -51,3 +51,11 @@ class BlogView(DetailView):
                 pass
         context['related']  = Blog.objects.filter(Q(title__icontains=rel[0]) | Q(title__icontains=rel[1])).filter(~Q(pk=self.kwargs.get('pk')))
         return context
+
+
+class DeleteBlog(SuperUserRequiredMixin, DeleteView):
+    model = Blog
+    pk_url_kwarg = 'pk'
+    slug_url_kwarg = 'slug'
+    template_name_suffix = '_delete'
+    success_url ="/blog/"

@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div style="width: 300px; margin: auto;">
+        <form method="post">{% csrf_token %}
+     
+ 
+            <p>Are you sure you want to delete 
+                <br>
+                "{{ object }}"?</p>
+                <input type="submit" value="Yes" class="btn btn-danger"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button   class="btn btn-success">No</button>
+        </form> 
+    </div>
+{% endblock content %}

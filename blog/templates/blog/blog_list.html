@@ -32,8 +32,11 @@
                                   <div class="offset-2"></div>
                                   {% if request.user.is_authenticated %}
                                       {% if request.user.is_superuser %}
-                                      <div class="col-sm-12 col-md-5"> 
+                                      <div class="col-sm-12 col-md-3"> 
                                         <a href="{% url 'blog:update-blog' pk=object.pk %}"><button type="submit" class="btn btn-success">Update</button></a>
+                                      </div>
+                                      <div class="col-sm-12 col-md-2"> 
+                                        <a href="{% url 'blog:delete' pk=object.pk title=object.slug %}"><button type="submit" class="btn btn-danger" >Delete</button></a>
                                       </div>
                                       {% endif %}
                                   {% endif %}
