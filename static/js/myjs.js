@@ -4,7 +4,7 @@ $(document).ready(function(){
   console.log('loaded');
 
   //get email contact
-  axios.get("http://127.0.0.1:8000/home/email/")
+  axios.get("https://programminghero.herokuapp.com/home/email/")
   .then((res)=>{
     data = res.data;
     console.log(data);
@@ -28,8 +28,8 @@ $(document).ready(function(){
   .catch((err)=>{
     console.log(err);
   });
-//get phone
-  axios.get("http://127.0.0.1:8000/home/phone/")
+//get phone for prod
+  axios.get("https://programminghero.herokuapp.com/home/phone/")
   .then((res)=>{
     data = res.data;
     //console.log(data);
@@ -55,8 +55,8 @@ $(document).ready(function(){
 
 //console.log('all request');
   //all
-  const email_re = axios.get("http://127.0.0.1:8000/home/email/")
-  const phone_re = axios.get("http://127.0.0.1:8000/home/phone/")
+  const email_re = axios.get("https://programminghero.herokuapp.com/home/email/")
+  const phone_re = axios.get("https://programminghero.herokuapp.com/home/phone/")
   axios.all([email_re,phone_re]).then(axios.spread((res1,res2)=>{
     // console.log(res1.data);
     // console.log(res2.data);
