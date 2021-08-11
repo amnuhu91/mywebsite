@@ -43,7 +43,7 @@ class MyAccountManager(BaseUserManager):
 		)
 		user.admin = True
 		user.staff = True
-		user.is_superuser = True
+		user.superuser = True
 		user.save(using=self._db)
 		return user
 
@@ -61,7 +61,7 @@ class Account(AbstractBaseUser):
 	admin				= models.BooleanField(default=False)
 	is_active				= models.BooleanField(default=True)
 	staff				= models.BooleanField(default=False)
-	is_superuser			= models.BooleanField(default=False)
+	superuser			= models.BooleanField(default=False)
 
 	USERNAME_FIELD = 'email'
 	REQUIRED_FIELDS = []
@@ -110,6 +110,10 @@ class Account(AbstractBaseUser):
 	def is_admin(self):
 		# "Is the user a admin member?"
 		return self.admin
+	@property
+	def is_superuser(self):
+		# "Is the user a admin member?"
+		return self.superuser
 
 
 

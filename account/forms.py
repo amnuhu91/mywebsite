@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.contrib.auth.forms import UserCreationForm
 
 
 User = get_user_model()
@@ -88,3 +89,14 @@ class UserAdminChangeForm(forms.ModelForm):
         # This is done here, rather than on the field, because the
         # field does not have access to the initial value
         return self.initial["password"]
+
+
+class Registration(UserCreationForm):
+    class Meta:
+      model = User #this is the "YourCustomUser" that you imported at the top of the file  
+      fields = ('email', 'password1', 'password2') #etc etc, other fields you want displayed on the form
+      help_texts = {
+            'password1': None,
+            'email': None,
+            'password2':None
+        }
