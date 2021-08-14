@@ -25,8 +25,9 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('about_me.urls')),
-    path('accounts/', include('account.urls')),
+    path('acc/', include('myaccount.urls')),
     path('blog/', include('blog.urls')),
+    path('accounts/', include('allauth.urls')),
     # url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
     # url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     #path('register/',registerUser, name = 'register'),

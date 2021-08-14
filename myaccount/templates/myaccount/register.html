@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+
+{% block content %}
+<div style="width: 400px; margin: auto;">
+    <p class="h3 text-muted text-center">Register</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{form | crispy }}
+        <input type="submit" value="Register">
+    </form>
+    <centre><a href="{% provider_login_url 'github' %}">Sign Up with GitHub</a></centre>
+</div>
+{% endblock content %}

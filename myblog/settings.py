@@ -34,14 +34,25 @@ ALLOWED_HOSTS = [ '*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    #allauth
+    'django.contrib.sites',
     'crispy_forms',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account.apps.AccountConfig',
+    #'account.apps.AccountConfig',
     'about_me.apps.AboutMeConfig',
     'blog.apps.BlogConfig',
+    'myaccount.apps.MyaccountConfig',
+
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #custom settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
-AUTH_USER_MODEL = 'account.Account'
+AUTH_USER_MODEL = 'myaccount.Account'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     
@@ -147,7 +158,23 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL ='blog/home'
 LOGOUT_REDIRECT_URL = '/'
+#allauth
+AUTHENTICATION_BACKENDS = [
+    #...
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
 
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    #...
+]
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION =None #"mandatory"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 
 
 # Activate Django-Heroku.
