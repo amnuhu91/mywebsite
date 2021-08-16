@@ -9,7 +9,9 @@
         {% csrf_token %}
         {{form | crispy }}
         <input type="submit" value="Register">
+        <centre><a href="{% provider_login_url 'github' %}">Sign Up with GitHub</a></centre>
+        <input type="hidden" name="next" value="{{ request.GET.next }}" />
     </form>
-    <centre><a href="{% provider_login_url 'github' %}">Sign Up with GitHub</a></centre>
+    
 </div>
 {% endblock content %}
