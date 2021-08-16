@@ -30,6 +30,43 @@
         <li class="nav-item ">
           <a class="nav-link" href="#">About me</a>
         </li>
+        <li class="nav-item dropdown">
+          <a  class="nav-link dropdown-toggle"
+         
+          id="navbarDropdown"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false" href="{% url 'blog:blog' %}">Features</a>
+
+          <!--drop down menu -->
+          
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="{% url 'blog:blog' %}">Business</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'blog:add-blog' %}">Politics</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'blog:blog' %}">Weather</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'blog:blog' %}">Stock Markets</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'blog:blog' %}">International News</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'blog:blog' %}">Others</a>
+            </li>
+            <!-- <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li> -->
+          </ul>
+          
+
+        </li>
         {% if request.user.is_superuser %}
         <li class="nav-item dropdown">
           <a  class="nav-link dropdown-toggle"
