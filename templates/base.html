@@ -29,11 +29,11 @@
                   {% endblock bootsrap  %}
 
                   <!--custom  css -->
-                  <!-- {% block custom_css  %}
-                  <link rel="stylesheet" type="text/css" href="{% static "index.css" %}" />
-                  <link rel="stylesheet" href="{% static '' %}">
+                  {% block custom_css  %}
+                  <!-- <link rel="stylesheet" type="text/css" href="{% static "index.css" %}" /> -->
+                  <link rel="stylesheet" href="{% static 'custom.css' %}">
 
-                  {% endblock custom_css  %} -->
+                  {% endblock custom_css  %}
     </head>
     {% block navigation %}
     {% include "nav.html" %}
@@ -76,6 +76,8 @@
 
                
           {% endblock jss %}
+          {% block extra-js %}
+          {% endblock extra-js %}
         </body>
 </html>            
 
