@@ -5,11 +5,16 @@
 
 .dropdown:hover>.dropdown-menu {
   display: block;
+  
 }
 
-.dropdown>.dropdown-toggle:active {
+.dropdown > .dropdown-toggle:active {
   /*Without this, clicking will make it sticky*/
     pointer-events: none;
+}
+.dropdown >.dropdown-menu a:hover{
+  background-color: #39C0ED;
+  color: white;
 }
 
 
