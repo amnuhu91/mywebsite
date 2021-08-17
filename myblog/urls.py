@@ -21,7 +21,9 @@ from django.conf.urls import url
 #from account.views import registerUser
 
 
-
+admin.site.site_header = "My Website"
+admin.site.site_title = "amn website"
+admin.site.index_title = ""
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('about_me.urls')),
