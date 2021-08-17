@@ -27,9 +27,19 @@ class UpdateBlog(SuperUserRequiredMixin,UpdateView):
 
 class ListBlog(ListView):
     model = Blog
-  
+    
     extra_context= ext_context
     paginate_by = 5
+    def dispatch(self, request, *args, **kwargs):
+    # Try to dispatch to the right method; if a method doesn't exist,
+    # defer to the error handler. Also defer to the error handler if the
+    # request method isn't on the approved list.
+        print(request.path)
+        if request.method.lower() in self.http_method_names:
+            handler = getattr(self, request.method.lower(), self.http_method_not_allowed)
+        else:
+            handler = self.http_method_not_allowed
+        return handler(request, *args, **kwargs)
 class BlogView(DetailView):
     model = Blog
     #pk=request.GET.get('pk')
