@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #core header
+    'corsheaders',
     #'account.apps.AccountConfig',
     'about_me.apps.AboutMeConfig',
     'blog.apps.BlogConfig',
@@ -58,6 +60,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    #core header
+      'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -182,7 +186,9 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 
+#coreheader
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
