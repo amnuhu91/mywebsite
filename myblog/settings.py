@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-s5!to1jn&(sctsauinipai+hm@4k+_irdh6%_)oqltou9cm-j0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '*']
+ALLOWED_HOSTS = [ 'https://programminghero.herokuapp.com/',
+                    'http://127.0.0.1:8000/',
+        ]
 
 
 # Application definition
@@ -188,7 +190,13 @@ ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 
 #coreheader
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = [
+
+       'http://127.0.0.1:8000',
+       'https://programminghero.herokuapp.com',
+
+]
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
