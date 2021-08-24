@@ -61,17 +61,7 @@ $(document).ready(function(){
     // console.log(res1.data);
     // console.log(res2.data);
   }));
-  //addde
-    url = window.location.href;
-    searchform = $('#search-form')
-    search_input = ('#search-id')
-    csrf = document.getElementsByName('csrfmiddlewaretoken')
-    console.log(search_input)
-    console.log(search_form)
-  $('#search-id').keyup((e)=>{
-    //alert('keyup')
-    console.log(e.taget.value)
-  });
+  
 
 });
 
