@@ -8,3 +8,7 @@ console.log(url);
 console.log(csrf);
 console.log(searchForm);
 console.log(searchInput);
+
+searchInput.addEventListener('keyup', (e)=>{
+    console.log(e.target.value);
+});
