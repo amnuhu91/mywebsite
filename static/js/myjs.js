@@ -61,14 +61,14 @@ $(document).ready(function(){
     // console.log(res1.data);
     // console.log(res2.data);
   }));
-  
+  //addde
+  $('#search-id').keyup(()=>{
+    alert('keyup')
+  });
 
 });
 
-const sr = document.getElementById('search-id')
-sr.addEventListener('keyup', function(){
-  alert('keyup')
-});
+
 
 
 
