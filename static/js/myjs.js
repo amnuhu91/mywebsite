@@ -64,6 +64,8 @@ $(document).ready(function(){
   //addde
   $('#search-id').keyup(()=>{
     alert('keyup')
+    search_val = $('#search-id').val()
+    console.log(search_val)
   });
 
 });
