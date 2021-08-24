@@ -67,7 +67,7 @@ $(document).ready(function(){
    let search_input = $('#search-id')
     let csrf = document.getElementsByName('csrfmiddlewaretoken')
     console.log(search_input)
-    console.log(search_form)
+    console.log(searchform)
   $('#search-id').keyup((e)=>{
     //alert('keyup')
     console.log(e.taget.value)
