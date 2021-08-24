@@ -64,7 +64,7 @@ $(document).ready(function(){
   //addde
     let url = window.location.href;
     let searchform = $('#search-form')
-   let search_input = ('#search-id')
+   let search_input = $('#search-id')
     let csrf = document.getElementsByName('csrfmiddlewaretoken')
     console.log(search_input)
     console.log(search_form)
