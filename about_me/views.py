@@ -85,8 +85,12 @@ class FrontCourseDetail(DetailView):
 		pk= self.kwargs.get('pk')
 		context = super().get_context_data(**kwargs)
 		context['learn']= Learn.objects.all()
+		
 		context['links']=  UsefulLinks.objects.all()
 
 		context['ftopics'] =  FrontEndTopics.objects.filter(course_name__exact=pk)
 		return context
+def search_topic(request,pk):
+	search = FrontEndTopics.objects.filter(course_name__exact=pk)
 	
+	return JsonResponse({'data':'search'})

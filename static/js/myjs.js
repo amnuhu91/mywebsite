@@ -62,10 +62,15 @@ $(document).ready(function(){
     // console.log(res2.data);
   }));
   //addde
-  $('#search-id').keyup(()=>{
+    url = window.location.href;
+    searchform = $('#search-form')
+    search_input = ('#search-id')
+    csrf = document.getElementsByName('csrfmiddlewaretoken')
+    console.log(search_input)
+    console.log(search_form)
+  $('#search-id').keyup((e)=>{
     //alert('keyup')
-    search_val = $('#search-id').val()
-    console.log(search_val)
+    console.log(e.taget.value)
   });
 
 });

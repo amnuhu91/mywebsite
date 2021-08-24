@@ -20,15 +20,15 @@
 
         </div>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-3  overflow-auto " style="border: 1px solid rgb(49, 40, 40); height: 67.5vh;">
+    <div class="col-sm-12 col-md-12 col-lg-3 overflow-auto  " style="border: 1px solid rgb(49, 40, 40); height: 67.5vh; background-color: green;">
         <div class="row ">
-            <div class="px-0 py-1" >
+            <div class="px-0 py-1" style="background-color: tomato; " >
                 <div class="col-sm-12 col-sm-12 col-lg-12 text-center fs-2 fw-bolder text-muted " style="background-color: #cfcfd4; color: white;">
                 syllabus
                 </div>
                 <div class="pt-1 px-3">
                 <form method="GET" id="seaarch-form" style="background-color: white;">
-                
+                    {% csrf_token %}
                     <div class="form-outline mb-4">
                       <input type="search" placeholder="search topic" id="search-id" class="form-control" />
                     </div>
@@ -36,12 +36,18 @@
                   </div>
             </div>
             <hr>
-            <div class="col-sm-12 col-sm-12 col-lg-12 px-0" style="">
+        
+            
+            
+            
+        </div>
+        <div class="" >
+            <div class="col-sm-12 col-sm-12 col-lg-12 px-0 " style="">
                 
 
                 <div class="card">
                     {% if ftopics %}
-                                    <ul class="list-group list-group-flush">
+                                    <ul class="list-group list-group-flush" id="search-topic">
                                         
                                             
                                                     
@@ -80,3 +86,5 @@
 </div>
 
 {% endblock content %}
+
+
