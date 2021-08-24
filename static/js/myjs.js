@@ -61,21 +61,12 @@ $(document).ready(function(){
     // console.log(res1.data);
     // console.log(res2.data);
   }));
-<<<<<<< HEAD
+
   
 =======
   //addde
-    let url = window.location.href;
-    let searchform = $('#search-form')
-   let search_input = $('#search-id')
-    let csrf = document.getElementsByName('csrfmiddlewaretoken')
-    console.log(search_input)
-    console.log(searchform)
-  $('#search-id').keyup((e)=>{
-    //alert('keyup')
-    console.log(e.taget.value)
-  });
->>>>>>> b12e62693a2e5de745a64839e0a41f9cd526608e
+  
+
 
 });
 
