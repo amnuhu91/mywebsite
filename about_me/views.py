@@ -9,7 +9,7 @@ from about_me.models import (EmailContact, PhoneContact, Myself,
 
 #class import
 from django.views.generic.detail import DetailView
-
+from django.db.models import Q
 
 
 # Create your views here.
@@ -91,6 +91,8 @@ class FrontCourseDetail(DetailView):
 		context['ftopics'] =  FrontEndTopics.objects.filter(course_name__exact=pk)
 		return context
 def search_topic(request,pk):
-	search = FrontEndTopics.objects.filter(course_name__exact=pk)
+	search_val = request.POST.get('saerch_val')
+	print(search_val)
+	search_result =  FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val))
 	
-	return JsonResponse({'data':'search'})
+	return JsonResponse({'data':search_result})
