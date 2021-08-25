@@ -19,6 +19,24 @@ const search_function = (search_val) =>{
         console.log(res.data)
         console.log(typeof res.data)
         topics = res.data
+        if searchInput.value ===null || searchInput.value ==='' searchInput.value ===undefined{
+            console.log('empty search')
+        }
+        else{
+            console.log(searchInput.value)
+        }
+
+    })
+    .catch((err)=>{
+        console.log('err')
+    })
+};
+searchInput.addEventListener('keyup', (e)=>{
+   
+   search_function(e.target.value)
+});
+
+
 //           for (let obj in topics){
 //           //console.log(`${data[obj].phone}`);
 //          let lst=''
@@ -32,12 +50,3 @@ const search_function = (search_val) =>{
 
 //          result.innerHTML = lst
 //         }
-    })
-    .catch((err)=>{
-        console.log('err')
-    })
-};
-searchInput.addEventListener('keyup', (e)=>{
-   
-   search_function(e.target.value)
-});
