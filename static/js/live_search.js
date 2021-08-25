@@ -17,6 +17,7 @@ const search_function = (search_val) =>{
     .then((res)=>{
         console.log('tested')
         console.log(res.data)
+        console.log(typeof res.data)
     })
     .catch((err)=>{
         console.log('err')
