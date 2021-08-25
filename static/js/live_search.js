@@ -8,7 +8,7 @@ console.log(url);
 console.log(csrf);
 console.log(searchForm);
 console.log(searchInput);
-let search_function = (search_val) =>{
+const search_function = (search_val) =>{
     search_data  = new FormData();
     search_data.append('csrf',csrf)
     search_data.append('saerch_val', searchInput.value);
@@ -27,6 +27,6 @@ let search_function = (search_val) =>{
     });
 };
 searchInput.addEventListener('keyup', (e)=>{
-    console.log(e.target.value);
+   
     search_function(e.terget.value);
 });
