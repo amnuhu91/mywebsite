@@ -11,7 +11,7 @@ console.log(searchInput);
 let search_function = (search_val) =>{
     search_data  = new FormData();
     search_data.append('csrf',csrf)
-    search_data.append('saerch_val', searchInput);
+    search_data.append('saerch_val', searchInput.value);
     console.log(search_data);
     $.ajax({
         methed: 'POST',
