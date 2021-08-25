@@ -99,4 +99,4 @@ def search_topic(request,pk):
 		qs =  FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val))
 	
 		return HttpResponse({'data':qs})
-	return render(reuest, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':ftopics})
+	return render(request, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':ftopics})
