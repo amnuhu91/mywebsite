@@ -93,10 +93,14 @@ class FrontCourseDetail(DetailView):
 def search_topic(request,pk):
 	course =  FrontEndCourse.objects.all()
 	ftopics = FrontEndTopics.objects.filter(course_name__exact=pk)
+	result = ftopics
 	if request.method == 'POST':
 		search_val = request.POST.get('saerch_val')
-		print(search_val)
 		qs =  list(FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val)).values())
-	
-		return  JsonResponse(qs, safe=False)
+		if len(search_val) > 0 and len(qs) >0:
+			print(search_val)
+			print(qs)
+			result = qs
+			return  JsonResponse(result, safe=False)
+		return JsonResponse({'result':'no data found'})
 	return render(request, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':ftopics})
