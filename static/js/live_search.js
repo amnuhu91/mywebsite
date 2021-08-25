@@ -12,7 +12,7 @@ const search_function = (search_val) =>{
     search_data  = new FormData();
     search_data.append('csrfmiddlewaretoken',csrf)
     search_data.append('saerch_val', searchInput.value);
-    console.log(search_data);
+    
     $.ajax({
         type: 'POST',
         url: '/course-detail/',
