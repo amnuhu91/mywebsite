@@ -87,15 +87,15 @@ def search_topic(request,pk):
 	course =  FrontEndCourse.objects.all()
 	ftopics = FrontEndTopics.objects.filter(course_name__exact=pk)
 	result = ftopics
-	search_val = request.POST.get('saerch_val')
-	if  search_val and  request.method == 'POST':
-		qs =  list(FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val)).values())
+	search_value = request.POST.get('saerch_val')
+	if  search_value and  request.method == 'POST':
+		qs =  list(FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_value)).values())
 		if  len(qs) >0:
 			print(qs)
 			result = qs
 			return  JsonResponse(result, safe=False)
 		return JsonResponse({'result':'no topic found'})
-	elif search_val =='' or search_val==None  and request.method=='POST':
+	elif not  search_value==None  and request.method=='POST':
 		qs =  list(FrontEndTopics.objects.filter(Q(course_name__exact=pk)).values())
 		result=qs
 		return  JsonResponse(result, safe=False)
