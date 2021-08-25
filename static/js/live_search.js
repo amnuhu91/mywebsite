@@ -13,26 +13,29 @@ const search_function = (search_val) =>{
     search_data.append('csrfmiddlewaretoken',csrf)
     search_data.append('saerch_val', searchInput.value);
     console.log(search_data)
+    // get data function
+    axios.get(url)
+    .then((res) =>{
+        console.log(res.data);
+    })
+    .catch((res) =>{
+        console.log(res.error);
+    })
+    //on keyup handle function
     axios.post(url, search_data)
     .then((res)=>{
         console.log('tested')
         console.log(res.data)
         console.log(typeof res.data)
         topics = res.data
-        //if (searchInput.value ===null || searchInput.value ==='' || searchInput.value ===undefined){
             console.log('empty search')
             for (let obj in topics){
                 let lst=''
                  lst+=`
-                 <li class="list-group-item" style="font-size:10"><small><i class="fa fa-mobile me-3" ></i>${topics[obj].topic_name}</small></li>
+                 <li class="list-group-item" >${topics[obj].topic_name}</li>
                `
                 result.innerHTML=lst
                }
-       // }
-        //else{
-            console.log(searchInput.value)
-       // }
-
     })
     .catch((err)=>{
         console.log('err')

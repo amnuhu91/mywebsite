@@ -69,13 +69,6 @@ def phone_contact_view(request):
 		return JsonResponse({'data':'No Phone contact right now'})
 
 
-
-
-
-
-
-
-
 class FrontCourseDetail(DetailView):
 	model = FrontEndCourse
 	context_object_name = 'course'
