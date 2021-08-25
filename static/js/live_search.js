@@ -30,7 +30,7 @@ const search_function = (search_val) =>{
         `
          }
 
-         result.append(lst)
+         result.innerHTML = lst
         }
     })
     .catch((err)=>{
