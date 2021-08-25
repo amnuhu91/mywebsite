@@ -13,18 +13,13 @@ const search_function = (search_val) =>{
     search_data.append('csrfmiddlewaretoken',csrf)
     search_data.append('saerch_val', searchInput.value);
     
-    $.ajax({
-        type: 'POST',
-        url: '/course-detail/',
-        data:search_data,
-        success:(res)=>{
-            console.log(res);
-        },
-        error: (res)=>{
-            console.log(res.error);
-        }
-
-    });
+    axios.post('/course-detail/', search_data)
+    .then((res)=>{
+        console.log('tested')
+    })
+    .catch((err)=>{
+        console.log('err')
+    })
 };
 searchInput.addEventListener('keyup', (e)=>{
    
