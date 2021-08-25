@@ -48,7 +48,9 @@
                 <div class="card">
                     {% if ftopics %}
                                     <ul class="list-group list-group-flush" id="search-topic">
-     
+                                        {%for topic in topics%}
+                                            <li>{{topic.topic_name}}</li>
+                                        {% endfor %}
                                     </ul>
                             {% else %}
                             <h3>no topics</h3>
