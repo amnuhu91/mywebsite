@@ -91,12 +91,12 @@ class FrontCourseDetail(DetailView):
 		context['ftopics'] =  FrontEndTopics.objects.filter(course_name__exact=pk)
 		return context
 def search_topic(request,pk):
-	
-	
+	course =  FrontEndCourse.objects.all()
+	ftopics = FrontEndTopics.objects.filter(course_name__exact=pk)
 	if request.is_ajax() and request.method=='POST':
 		search_val = request.POST.get('saerch_val')
 		print(search_val)
 		qs =  FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val))
 	
 		return HttpResponse({'data':qs})
-	return JsonResponse({'data':request.method})
+	return render(reuest, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':ftopics})
