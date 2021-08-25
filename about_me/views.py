@@ -95,7 +95,7 @@ def search_topic(request,pk):
 			result = qs
 			return  JsonResponse(result, safe=False)
 		return JsonResponse({'result':'no topic found'})
-	elif (search_val =='' or search_val==None ) and request.method=='POST':
+	elif search_val =='' or search_val==None  and request.method=='POST':
 		qs =  list(FrontEndTopics.objects.filter(Q(course_name__exact=pk)).values())
 		result=qs
 		return  JsonResponse(result, safe=False)
