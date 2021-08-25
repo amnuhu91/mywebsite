@@ -6,7 +6,7 @@ urlpatterns = [
 	# path('footer',footer, name='home'),
 	path('email/',email_contact_view, name='email'),
 	path('phone/',phone_contact_view, name='phone'),
-	path('course/<int:pk>/',FrontCourseDetail.as_view(), name='course-detail'),
-	path('search/<int:pk>/',search_topic),
+	path('course/<int:pk>/',FrontCourseDetail.as_view(), name='course-detail_old'),
+	path('search/<int:pk>/',search_topic, name='course-detail'),
 
 ]
