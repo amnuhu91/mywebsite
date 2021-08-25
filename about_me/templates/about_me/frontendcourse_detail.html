@@ -48,7 +48,7 @@
                 <div class="card">
                     {% if ftopics %}
                                     <ul class="list-group list-group-flush" id="search-topic">
-                                        {%for topic in topics%}
+                                        {%for topic in ftopics %}
                                             <li>{{topic.topic_name}}</li>
                                         {% endfor %}
                                     </ul>
@@ -60,11 +60,7 @@
 
         </div>
     </div>
-    <!-- <div class=" col-sm-12 col-md-12 col-lg-12 overflow-auto" style="border: 2px solid black; height: 15vh;">
-        <h3>test</h3>
-        <div class="" style="height: 500px; border: 2px solid green;"></div>
-        
-    </div> -->
+    
 
 </div>
 
