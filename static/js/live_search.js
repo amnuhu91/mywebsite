@@ -9,13 +9,14 @@ console.log(csrf);
 console.log(searchForm);
 console.log(searchInput);
 const search_function = (search_val) =>{
-    search_data  = new FormData();
+    let search_data  = new FormData();
     search_data.append('csrfmiddlewaretoken',csrf)
     search_data.append('saerch_val', searchInput.value);
     
     axios.post('/course-detail/', search_data)
     .then((res)=>{
         console.log('tested')
+        console.log(res)
     })
     .catch((err)=>{
         console.log('err')
