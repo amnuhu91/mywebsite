@@ -16,7 +16,7 @@ const search_function = (search_val) =>{
     axios.post(url, search_data)
     .then((res)=>{
         console.log('tested')
-        console.log(res)
+        console.log(res.data)
     })
     .catch((err)=>{
         console.log('err')
