@@ -8,19 +8,20 @@ console.log(url);
 console.log(csrf);
 console.log(searchForm);
 console.log(searchInput);
+// get data function
+axios.get(url)
+.then((res) =>{
+    console.log(res.data);
+})
+.catch((res) =>{
+    console.log(res.error);
+})
 const search_function = (search_val) =>{
     let search_data  = new FormData();
     search_data.append('csrfmiddlewaretoken',csrf)
     search_data.append('saerch_val', searchInput.value);
     console.log(search_data)
-    // get data function
-    axios.get(url)
-    .then((res) =>{
-        console.log(res.data);
-    })
-    .catch((res) =>{
-        console.log(res.error);
-    })
+    
     //on keyup handle function
     axios.post(url, search_data)
     .then((res)=>{
