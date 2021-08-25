@@ -97,5 +97,5 @@ def search_topic(request,pk):
 			return  JsonResponse(result, safe=False)
 		#result = ftopics
 		return JsonResponse({'result':'no topic found'})
-	#return render(request, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':ftopics})
-	return JsonResponse(result, safe=False)
+	return render(request, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':ftopics})
+	#return JsonResponse(result, safe=False)
