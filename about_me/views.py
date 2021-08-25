@@ -98,5 +98,5 @@ def search_topic(request,pk):
 		print(search_val)
 		qs =  FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val))
 	
-		return HttpResponse({'data':'yes'})
+		return HttpResponse({'data':qs})
 	return JsonResponse({'data':request.method})
