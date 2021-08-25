@@ -19,7 +19,7 @@ const search_function = (search_val) =>{
         console.log(res.data)
         console.log(typeof res.data)
         topics = res.data
-        if (searchInput.value ===null || searchInput.value ==='' searchInput.value ===undefined){
+        if (searchInput.value ===null || searchInput.value ==='' || searchInput.value ===undefined){
             console.log('empty search')
         }
         else{
