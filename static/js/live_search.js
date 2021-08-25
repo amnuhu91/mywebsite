@@ -28,5 +28,5 @@ const search_function = (search_val) =>{
 };
 searchInput.addEventListener('keyup', (e)=>{
    
-   search_function()
+   search_function(e.target.value)
 });
