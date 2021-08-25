@@ -15,7 +15,7 @@ let search_function = (search_val) =>{
     console.log(search_data);
     $.ajax({
         methed: 'POST',
-        url: url,
+        url: '/course-detail/',
         data:search_data,
         success:(res)=>{
             console.log(res);
