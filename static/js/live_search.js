@@ -13,7 +13,7 @@ const search_function = (search_val) =>{
     search_data.append('csrfmiddlewaretoken',csrf)
     search_data.append('saerch_val', searchInput.value);
     
-    axios.post('/course-detail/', search_data)
+    axios.post(url, search_data)
     .then((res)=>{
         console.log('tested')
         console.log(res)
