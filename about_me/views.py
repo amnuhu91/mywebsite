@@ -96,8 +96,9 @@ def search_topic(request,pk):
 			return  JsonResponse(result, safe=False)
 		return JsonResponse({'result':'no topic found'})
 	elif not  search_value or search_value==''  and request.method=='POST':
-		qs =  list(FrontEndTopics.objects.filter(Q(course_name__exact=pk)).values())
+		qs =  FrontEndTopics.objects.filter(course_name__exact=pk)
 		result=qs
-		return  JsonResponse(result, safe=False)
+		#return  JsonResponse(result, safe=False)
+		return render(request, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':result})
 	return render(request, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':ftopics})
 	
