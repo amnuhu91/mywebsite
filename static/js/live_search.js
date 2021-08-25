@@ -18,6 +18,20 @@ const search_function = (search_val) =>{
         console.log('tested')
         console.log(res.data)
         console.log(typeof res.data)
+        topics = res.data
+          for (let obj in topics){
+          //console.log(`${data[obj].phone}`);
+         let lst=''
+
+         if (topics[obj].topic_name != '' ){
+          lst+=`
+          <li class="list-group-item" style="font-size:10"><small><i class="fa fa-mobile me-3" ></i>${topics[obj].topic_name}</small></li>
+
+        `
+         }
+
+         result.append(lst)
+        }
     })
     .catch((err)=>{
         console.log('err')
