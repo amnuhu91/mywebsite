@@ -96,5 +96,5 @@ def search_topic(request,pk):
 	if request.is_ajax() and request.method=='POST':
 		search_result =  FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val))
 	
-		return JsonResponse({'data':search_result})
+		return HttpResponse({'data':'yes'})
 	return JsonResponse({'data':'nothing'})
