@@ -27,6 +27,6 @@ let search_function = (search_val) =>{
     });
 };
 searchInput.addEventListener('keyup', (e)=>{
-    //console.log(e.target.value);
+    console.log(e.target.value);
     search_function(e.currentTarget.value)
 });
