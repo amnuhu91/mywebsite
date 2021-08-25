@@ -10,11 +10,11 @@ console.log(searchForm);
 console.log(searchInput);
 const search_function = (search_val) =>{
     search_data  = new FormData();
-    search_data.append('csrf',csrf)
+    search_data.append('csrfmiddlewaretoken',csrf)
     search_data.append('saerch_val', searchInput.value);
     console.log(search_data);
     $.ajax({
-        methed: 'POST',
+        type: 'POST',
         url: '/course-detail/',
         data:search_data,
         success:(res)=>{
