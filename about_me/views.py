@@ -96,7 +96,7 @@ def search_topic(request,pk):
 	if request.method == 'POST':
 		search_val = request.POST.get('saerch_val')
 		print(search_val)
-		qs =  FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val))
+		qs =  list(FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val)).values())
 	
-		return HttpResponse({'data':qs})
+		return  JsonResponse(qs, safe=False)
 	return render(request, 'about_me/frontendcourse_detail.html',{'course':course,'ftopics':ftopics})
