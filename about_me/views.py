@@ -93,6 +93,8 @@ class FrontCourseDetail(DetailView):
 def search_topic(request,pk):
 	search_val = request.POST.get('saerch_val')
 	print(search_val)
-	search_result =  FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = 'color'))
+	if request.is_ajax() and request.method=='POST':
+		search_result =  FrontEndTopics.objects.filter(Q(course_name__exact=pk) & Q(topic_name__icontains = search_val))
 	
-	return JsonResponse({'data':search_result})
+		return JsonResponse({'data':search_result})
+	return JsonResponse({'data':'nothing'})
