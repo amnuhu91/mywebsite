@@ -85,7 +85,7 @@ class FrontCourseDetail(DetailView):
 		return context
 def search_topic(request,pk):
 	course =  FrontEndCourse.objects.all()
-	ftopics = list(FrontEndTopics.objects.filter(course_name__exact=pk).values())
+	ftopics = FrontEndTopics.objects.filter(course_name__exact=pk)
 	result = ftopics
 	if request.method == 'POST':
 		search_val = request.POST.get('saerch_val')
