@@ -19,19 +19,19 @@ const search_function = (search_val) =>{
         console.log(res.data)
         console.log(typeof res.data)
         topics = res.data
-          for (let obj in topics){
-          //console.log(`${data[obj].phone}`);
-         let lst=''
+//           for (let obj in topics){
+//           //console.log(`${data[obj].phone}`);
+//          let lst=''
 
-         if (topics[obj].topic_name != '' ){
-          lst+=`
-          <li class="list-group-item" style="font-size:10"><small><i class="fa fa-mobile me-3" ></i>${topics[obj].topic_name}</small></li>
+//          if (topics[obj].topic_name != '' ){
+//           lst+=`
+//           <li class="list-group-item" style="font-size:10"><small><i class="fa fa-mobile me-3" ></i>${topics[obj].topic_name}</small></li>
 
-        `
-         }
+//         `
+//          }
 
-         result.innerHTML = lst
-        }
+//          result.innerHTML = lst
+//         }
     })
     .catch((err)=>{
         console.log('err')
