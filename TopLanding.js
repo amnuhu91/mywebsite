@@ -69,10 +69,12 @@ var LandingComp = function LandingComp() {
             "a",
             {
               style: { color: "#55acee", marginRight: "20px" },
-              href: "#!",
+              href: "https://wa.me/2348064790955",
+              target: "_blank",
+              rel: "noopener noreferrer",
               role: "button"
             },
-            React.createElement("i", { className: "fab fa-twitter fa-lg" })
+            React.createElement("i", { className: "fab fa-whatsapp fa-lg" })
           ),
           React.createElement(
             "a",

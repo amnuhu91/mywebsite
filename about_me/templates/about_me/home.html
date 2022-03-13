@@ -45,19 +45,35 @@
 					</ul>
 				  </div> -->
 				  
-					<div class="row px-0">
+					<div class="row px-0 >
 						<div class="col-sm-12 col-md-12 col-lg-12 ">
-							<div class="card">
-								<div class="card-header"><h4><b><i>services</i></b></h4></div>
-								<ul class="list-group list-group-flush">
+							<div class="card " style="background: inherit;">
+								
 									
-									<li class="list-group-item">
-										<div class="card-header"><h6><b>Front End Techs.</b></h6></div>
-										<ul class="list-group list-group-flush"> 
+								
+								<div class="card-header"><h4 style="color: black;"><b><i>Services</i></b></h4></div>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item" style=" background: inherit; ;
+									opacity: 1;
+									color: rgb(255, 255, 255);">
+
+										<div class="card-header services-cardheader"><h6 style="text-decoration: underline; color: black;"><b>General Services</b></h6></div>
+										<ul class="list-group list-group-flush">
+											<li class="list-group-item" style="background: inherit;"><a href="# " class="card-link"  style="color: white">web Application Dev</a></li>
+											<li class="list-group-item" style="background: inherit;"><a href="# " class="card-link"  style="color: white">Mobile App. Dev</a></li>
+
+										</ul>
+									</li>
+									
+									<li class="  list-group-item cards" style=" background: inherit; ;
+									opacity: 1;
+									color: rgb(255, 255, 255);">
+										<div class="card-header services-cardheader"><h6 style="text-decoration: underline; color: black;"><b>Front End Techs.</b></h6></div>
+										<ul class="list-group list-group-flush" > 
 											
 											{% for course in front_end %}
 											{% if course.status  %}
-												<li class="list-group-item"><a href="{% url 'about_me:course-detail' pk=course.pk %} " class="card-link">{{course.course_name}}</a></li>
+												<li class="list-group-item" style="background: inherit;"><a href="{% url 'about_me:course-detail' pk=course.pk %} " class="card-link"  style="color: white">{{course.course_name}} &nbsp;&nbsp;&nbsp;<span style="color: blue;">read...</span></a></li>
 												
 												
 											{% endif %}
@@ -67,18 +83,20 @@
 											
 										</ul>
 									</li>
-									<li class="list-group-item">
-										<div class="card-header"><h6><b>Back end Techs.</b></h6></div>
-										<ul class="list-group list-group-flush">
+									<li class="list-group-item cards" style=" background: inherit;
+									opacity: 1;
+									color: rgb(255, 255, 255);">
+										<div class="card-header services-cardheader"><h6 style="text-decoration: underline; color: black;"><b>Back end Techs.</b></h6></div>
+										<ul class="list-group list-group-flush" >
 											{% for course in back_end %}
 											{% if course.status %}
-												<li class="list-group-item"><a href="#" class="card-link">{{course.course_name}}</a></li>
+												<li class="list-group-item" style="background: inherit;"><a href="#" class="card-link" style="color: white">{{course.course_name}}  &nbsp;&nbsp;&nbsp;<span style="color: blue;">read...</span></a></li>
 											{% endif %}
 											{%empty%}
 											{% endfor %}
 										</ul>
 									</li>
-									<li class="list-group-item"><a href="#" class="">Mobile app Development</a></li>
+									
 									
 								  
 								</ul>
