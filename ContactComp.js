@@ -2,8 +2,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _react = react,
-    useState = _react.useState;
+var _React = React,
+    useState = _React.useState;
 var InputText = primereact.inputtext.InputText;
 var InputTextarea = primereact.inputtextarea.InputTextarea;
 
@@ -186,4 +186,4 @@ var ContactComp = function ContactComp() {
   );
 };
 
-ReactDOM.render(React.createElement(EmailUsComp, null), document.getElementById('contactcomp'));
+ReactDOM.render(React.createElement(ContactComp, null), document.getElementById('ct'));
