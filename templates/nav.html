@@ -1,7 +1,7 @@
 {% load static %}
 
 <!-- Navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
   <!-- Container wrapper -->
   <div class="container-fluid gx-0">
     <!-- Toggle button -->
@@ -132,6 +132,9 @@
         {% endif %}
         <li class="nav-item">
           <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about_me:orgchart' %}">Orgnizational Chart</a>
         </li>
       </ul>
       <!-- Left links -->
