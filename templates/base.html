@@ -69,14 +69,24 @@
       
 
         <div class="" style="min-height: 67.9vh;" >
+            {% block spinner %}
+          
+            <div id="loading" class="d-flex justify-content-center pt-5" >
+                <img class="justify-content-center" id="loading-img" src="{% static 'media/loader.gif'  %}" alt="Loading..." />
+               
+            </div>
+            {% endblock spinner %}
           {% block content %}
             <div class="card">
               <div class="card-body">
                 test23e
               </div>
             </div>
+
+           
               
           {% endblock content %}
+         
         </div>
        {% block footer %}
        
@@ -177,7 +187,15 @@ const data = [{
         
 
           {% endblock components %}
-
+          <script>
+            $(window).on('load',function(){
+              //  $('#loading').hide()
+                 $( "#loading" ).fadeOut(200, function() {
+      // fadeOut complete. Remove the loading div
+                 $( "#loading" ).remove(); //makes page more lightweight 
+                    });  
+            })
+          </script>
           
         </body>
 </html>            

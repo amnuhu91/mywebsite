@@ -80,7 +80,7 @@ function CompChart(){
     return (
         <div className="organizationchart-demo">
             <div className="card">
-                <h5 className="text text-center">Advanced</h5>
+                <h5 className="text text-center">Our Company hierarchy</h5>
                 <OrganizationChart value={data} nodeTemplate={nodeTemplate} selection={selection} selectionMode="multiple"
                     onSelectionChange={event => setSelection(event.data)} className="company"></OrganizationChart>
 
@@ -103,13 +103,11 @@ function WithLoading(Component) {
   }
 const OrgWithLoading = WithLoading(CompChart)
 function MyCompOrgChart(){
-    const [isLoading, setIsloading] = useState(true)
-    // setTimeout(()=>{
+    const [isLoading, setIsloading] = useState(false)
+    
+    // useEffect(()=>{
     //     setIsloading(false)
-    // },5000)
-    useEffect(()=>{
-        setIsloading(false)
-    },[])
+    // },[])
    
    
     return(
