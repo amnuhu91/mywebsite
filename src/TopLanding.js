@@ -29,13 +29,13 @@ const LandingComp = () => {
           <div>
            
             <p className="strong h6">connect with us on</p>
-            <a
+         {/*   <a
               style={{ color: "#3b5998", marginRight: "20px" }}
               href="#!"
               role="button"
             >
               <i className="fab fa-facebook-f fa-lg"></i>
-            </a>
+      </a> */}
 
             <a
               style={{ color: "#55acee", marginRight: "20px" }}
@@ -49,7 +49,8 @@ const LandingComp = () => {
 
             <a
               style={{ color: "#dd4b39", marginRight: "20px" }}
-              href="#!"
+              href="mailto:amnuhu91@gmail.com"
+              
               role="button"
             >
               <i className="fab fa-google fa-lg"></i>
