@@ -38,6 +38,7 @@
                   <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
                   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
                   <!--primereact-->
+                  <script src="https://unpkg.com/react-transition-group@4.4.2/dist/react-transition-group.js"></script>
                   <link rel="stylesheet" href="https://unpkg.com/primeicons/primeicons.css" />
                   <link rel="stylesheet" href="https://unpkg.com/primereact/resources/themes/lara-light-indigo/theme.css" />
                   <link rel="stylesheet" href="https://unpkg.com/primereact/resources/primereact.min.css" />
@@ -113,7 +114,65 @@
           <script type="text/babel" src="{% static 'ContactComp.js' %}"></script>
           <script type="text/babel" src="{% static 'TopLanding.js' %}"></script>
           <script type="text/babel" src="{% static 'OrgChart.js' %}"></script>
+          <script type="text/babel">
 
+const data = [{
+    label:"Amn IT Business Solution Nig. LTD",
+    expanded:true,
+    children:[
+        {
+            label:"CEO",
+            type:"person",
+            className:"p-person",
+            expanded:true,
+            data:{name:"Abubakar Muhammad Nuhu", avatar:"ff.jpg"},
+            children:[
+                {
+                    label:"COO",
+                    type:"person",
+                    expanded:true,
+                    data:{name:"Ahmad Abubakar", avatar:''},
+                    children:[
+                        {
+                            label:"Front end design",
+                            className:"department-cfo"
+                        },
+                        {
+                            label:"Data base design",
+                            className:"department-cfo"
+                        }
+                    ]
+                },
+                {
+                    label:"CCo",
+                    type:"person",
+                    expanded:true,
+                    data:{name:"Ibrahim Auwal Musa"},
+                    children:[
+                        {
+                            label:"Marketing",
+                            className:"department-coo"
+                        },
+                        {
+                            label:"Sale",
+                            className:"department-coo"
+                        }
+                    ]
+                }
+            ]
+
+        }
+    ]
+}]
+
+
+
+              ReactDOM.render(<ContactComp />,document.getElementById('ct'))
+              ReactDOM.render(<FirstComp />,document.getElementById('root'))
+              ReactDOM.render(<FooterComp />,document.getElementById('footer'))
+              ReactDOM.render(<LandingComp />,document.getElementById('toplanding'))
+
+          </script>
         
 
           {% endblock components %}

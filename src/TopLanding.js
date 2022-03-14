@@ -69,6 +69,5 @@ const LandingComp = () => {
   );
 };
 
-ReactDOM.render(<LandingComp />,document.getElementById('toplanding'))
 
 

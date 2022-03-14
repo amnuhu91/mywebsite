@@ -103,4 +103,4 @@ const nodeTemplate = (node) => {
 
  
 
-ReactDOM.render(<OrganizationChart value={data} nodeTemplate={nodeTemplate} />, document.getElementById('chart'))
+ReactDOM.render(<OrganizationChart value={data} nodeTemplate={nodeTemplate} />, document.getElementById('org-chart'))

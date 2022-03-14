@@ -130,4 +130,4 @@ const ContactComp = () => {
   }
   
 
-  ReactDOM.render(<ContactComp />,document.getElementById('ct'))
+  

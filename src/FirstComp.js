@@ -36,4 +36,3 @@ function FirstComp(props){
     )
 }
 
-ReactDOM.render(<FirstComp />,document.getElementById('root'))

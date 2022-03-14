@@ -149,4 +149,3 @@ const FooterComp = () => {
     );
   };
   
-  ReactDOM.render(<FooterComp />,document.getElementById('footer'))
