@@ -64,6 +64,7 @@
     {% block navigation %}
     {% include "nav.html" %}
     {% endblock navigation %}
+   
  
     <body class="container-fluid ">
       
@@ -88,10 +89,7 @@
           {% endblock content %}
          
         </div>
-       {% block footer %}
-       
-       <div id="footer"></div>
-       {% endblock footer %}
+     
 
 
 
@@ -198,7 +196,14 @@ const data = [{
           </script>
           
         </body>
-</html>            
+</html>  
+
+{% block footer %}
+{% include 'footer.html' %}
+{% endblock footer %}
+
+       
+<!-- <div id="footer"></div> -->
 
               
 
