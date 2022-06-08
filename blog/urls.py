@@ -1,28 +1,22 @@
 from django.urls import path
-from django.views.generic import TemplateView
-from about_me.models import (EmailContact, PhoneContact, Myself,
-								BackEndCourse, FrontEndCourse,
-								Learn,UsefulLinks,FrontEndTopics
-							)
-from blog.views import (AddBlog, UpdateBlog, ListBlog, BlogView, DeleteBlog)
-from blog.models import Blog
-blogs = Blog.objects.all()
 
-context ={}
-learn = Learn.objects.all()
-links = UsefulLinks.objects.all()
-context['learn']= learn
-context['links']= links
-context['blogs'] = blogs
+from blog.views import (
+    PostListView,
+    PostDetailView,
+    PostShareView,
+    AddBlog
+)
+from .feeds import LatestPostsFeed
 
-app_name='blog'
+app_name = 'blog'
+
 urlpatterns = [
-
-
-    path('', ListBlog.as_view(), name='blog'),
-    path('my-blog/', TemplateView.as_view(template_name='blog/home.html', extra_context=context), name='my-blog'),
-    path('add-blog/', AddBlog.as_view(), name='add-blog'),
-    path('update-blog/<int:pk>', UpdateBlog.as_view(pk_url_kwarg = 'pk'), name='update-blog'),
-    path('read/<int:pk>/<str:title>', BlogView.as_view(), name='read'),
-    path('delete/<int:pk>/<str:title>', DeleteBlog.as_view(), name='delete'),
+    path('', PostListView.as_view(), name='post_list'),
+    path('tag/<slug:tag_slug>/', PostListView.as_view(),
+         name='post_list_by_tag'),
+    path('<int:year>/<int:month>/<int:day>/<slug:slug>/',
+         PostDetailView.as_view(), name='post_detail'),
+    path('<int:post_id>/share/', PostShareView.as_view(), name='post_share'),
+    path('feed/', LatestPostsFeed(), name='post_feed'),
+    path('new-post/', AddBlog.as_view(), name='new-post'),
 ]

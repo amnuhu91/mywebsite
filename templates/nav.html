@@ -38,7 +38,7 @@
           role="button"
           data-mdb-toggle="dropdown"
           aria-haspopup="true"
-          aria-expanded="false" href="{% url 'blog:blog' %}">Features</a>
+          aria-expanded="false" href="{% url 'blog:post_list' %}">Features</a>
 
           <!--drop down menu -->
           
@@ -46,22 +46,22 @@
           {% if request.path == "/blog/" %}
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">Business</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Business</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:add-blog' %}">Politics</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Politics</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">Weather</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Weather</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">Stock Markets</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Stock Markets</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">International News</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">International News</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">Others</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Others</a>
             </li>
             <!-- <li><hr class="dropdown-divider" /></li>
             <li>
@@ -71,16 +71,16 @@
           {% else %}
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">essential of website design</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">essential of website design</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:add-blog' %}">web framework</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">web framework</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">Networking</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Networking</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">Others</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Others</a>
             </li>
             <!-- <li><hr class="dropdown-divider" /></li>
             <li>
@@ -102,19 +102,19 @@
           id="navbarDropdown"
           role="button"
           data-mdb-toggle="dropdown"
-          aria-expanded="false" href="{% url 'blog:blog' %}">Blog</a>
+          aria-expanded="false" href="{% url 'blog:post_list' %}">Blog</a>
 
           <!--drop down menu -->
           
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">View All Post</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">View All Post</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:add-blog' %}">Post New Blog</a>
+              <a class="dropdown-item" href="{% url 'blog:new-post' %}">Post New Blog</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:blog' %}">Update Blog</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Update Blog</a>
             </li>
             <!-- <li><hr class="dropdown-divider" /></li>
             <li>
@@ -127,7 +127,7 @@
         
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:blog' %}">Blog</a>
+          <a class="nav-link" href="{% url 'blog:post_list' %}">Blog</a>
         </li>
         {% endif %}
         <li class="nav-item">

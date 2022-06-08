@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="mx-auto" style="width: 50%; margin-top: 100px;">
+        <form method="POST" enctype="multipart/form-data">
+            <fieldset class="scheduler-border">
+               <legend>post new blog</legend>
+                    {% csrf_token %}
+                    {{form.media}}
+                    {{form | crispy}}<br>
+                    <input type="submit" value="Post" class="btn btn-primary">
+               
+            </fieldset>
+        </form>
+        
+    </div>
+{% endblock content %}

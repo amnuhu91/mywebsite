@@ -1,27 +1,79 @@
+from django.conf import settings
 from django.db import models
-from django.urls import reverse ,reverse_lazy
-from django.utils.text import slugify
+from django.utils import timezone
+from django.contrib.auth.models import User
+from django.urls import reverse
+from ckeditor.fields import RichTextField
+from slugify import slugify
+from taggit.managers import TaggableManager
 
-# Create your models here.
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset()\
+            .filter(status='published')
 
 
-class Blog(models.Model):
-    title = models.CharField(max_length=200,null = True, blank=True)
-    slug = models.SlugField(default='',editable=False, null=True,blank=True)
-    body = models.TextField(null = True, blank=True)
-    image = models.ImageField(null=True, blank=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
-    viewable = models.BooleanField(default=True)
-    comment = models.TextField(null = True, blank=True)
+class Post(models.Model):
+
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+        ('published', 'Published')
+    )
+    title = models.CharField(max_length=250)
+    slug = models.SlugField(max_length=250, unique_for_date='publish')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    body = RichTextField(blank=True, null=True)
+    image = models.ImageField(upload_to="%Y/%m/%d/")
+    publish = models.DateTimeField(default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='draft'
+    )
+
+    objects = models.Manager()
+    published = PublishedManager()
+    tags = TaggableManager()
+
     class Meta:
-        ordering =['-updated_on']
+        ordering = ('-publish',)
+
     def __str__(self):
         return self.title
-    # def get_absolute_url(self):
-    #     return reverse_lazy('add-blog/')
-
     def save(self, *args, **kwargs):
-        value = self.title
-        self.slug = slugify(value, allow_unicode=True)
-        super().save(*args, **kwargs)
+        # set the value of the read_only_field using the regular field
+        self.slug = slugify(self.title)
+
+        # call the save() method of the parent
+        super(Post, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse(
+            "blog:post_detail",
+            args=[
+                self.publish.year,
+                self.publish.month,
+                self.publish.day,
+                self.slug
+            ]
+        )
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('created',)
+
+    def __str__(self):
+        return f'Comment by {self.name} on {self.post}'

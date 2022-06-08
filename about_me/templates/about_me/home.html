@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block custom_css  %}
+                  <!-- <link rel="stylesheet" type="text/css" href="{% static "index.css" %}" /> -->
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+
+{% endblock custom_css  %}
 {% block content %}
 <!-- {{ user.first_name|default:'Guest' |upper}}!
 <h1>hello</h1> -->

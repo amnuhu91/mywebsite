@@ -31,7 +31,9 @@
                   <!--custom  css -->
                   {% block custom_css  %}
                   <!-- <link rel="stylesheet" type="text/css" href="{% static "index.css" %}" /> -->
+                  <link href="{% static 'blog/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
                   <link rel="stylesheet" href="{% static 'custom.css' %}">
+                  <link href="{% static 'blog/css/style.css' %}" rel="stylesheet">
 
                   {% endblock custom_css  %}
                   <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
@@ -61,9 +63,11 @@
                   <script type="text/babel" src="{% static 'FooterComp.js' %}"></script>
         
     </head>
+    
     {% block navigation %}
     {% include "nav.html" %}
     {% endblock navigation %}
+    
    
  
     <body class="container-fluid pt-5 ">
