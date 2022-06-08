@@ -4,9 +4,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from slugify import slugify
 from taggit.managers import TaggableManager
-
+import readtime
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -23,8 +24,8 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    body = RichTextField(blank=True, null=True)
-    image = models.ImageField(upload_to="%Y/%m/%d/")
+    body = RichTextUploadingField(blank=True, null=True)
+    image = models.ImageField(upload_to="%Y/%m/%d/",blank=True,null=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -60,6 +61,9 @@ class Post(models.Model):
                 self.slug
             ]
         )
+    def get_readtime(self):
+        result = readtime.of_text(self.body)
+        return result.text
 
 
 class Comment(models.Model):

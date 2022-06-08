@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 
 from blog.views import (
     PostListView,
@@ -19,4 +19,5 @@ urlpatterns = [
     path('<int:post_id>/share/', PostShareView.as_view(), name='post_share'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
     path('new-post/', AddBlog.as_view(), name='new-post'),
+    #path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

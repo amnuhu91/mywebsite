@@ -66,8 +66,9 @@
     
     {% block navigation %}
     {% include "nav.html" %}
+      {% include "breadcrumb.html" %}   
     {% endblock navigation %}
-    
+
    
  
     <body class="container-fluid pt-5 ">
@@ -82,6 +83,7 @@
             </div>
             {% endblock spinner %}
           {% block content %}
+        
             <div class="card">
               <div class="card-body">
                 test23e
