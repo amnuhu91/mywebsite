@@ -46,7 +46,7 @@
           {% if request.path == "/blog/" %}
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Business</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list_cat' 'business' %}">Business</a>
             </li>
             <li>
               <a class="dropdown-item" href="{% url 'blog:post_list' %}">Politics</a>
@@ -138,16 +138,16 @@
           aria-expanded="false" href="{% url 'blog:post_list' %}">Blog</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Business</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list_cat' 'Techs' %}">Technology</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Politics</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list_cat' 'web' %}">Web Tech</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Weather</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list_cat' 'news' %}">News</a>
             </li>
             <li>
-              <a class="dropdown-item" href="{% url 'blog:post_list' %}">Stock Markets</a>
+              <a class="dropdown-item" href="{% url 'blog:post_list_cat' 'politics' %}">Politics</a>
             </li>
             <li>
               <a class="dropdown-item" href="{% url 'blog:post_list' %}">International News</a>

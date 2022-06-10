@@ -4,10 +4,16 @@
   <ol class="breadcrumb  " style="background-color:white">
     <li class="breadcrumb-item"><a href="{% url 'about_me:home' %}">Home</a></li>
     <li class="breadcrumb-item"><a href="{% url 'blog:post_list' %}">Blog</a></li>
+
     {% if object.title %}
     <li class="breadcrumb-item"><a href="{% url 'blog:post_list_cat' object.category %}">{{object.category}}</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{ object.title }}</li>
+    {% else %}
     {% endif %}
+    {% if url %}
+    <li class="breadcrumb-item active" aria-current="page">{{ url }}</li>
+    {% endif %}
+   
   </ol>
 </nav>
 </div>

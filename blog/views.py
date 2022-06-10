@@ -41,7 +41,7 @@ class PostListView(ListView):
     template_name = 'blog/post-list.html'
 
     def dispatch(self, request, *args, **kwargs):
-        print(request.path)
+        #print(request.path)
         return super(PostListView,self).dispatch(request, *args, **kwargs)
 
     def get_queryset(self, **kwargs):
@@ -63,13 +63,15 @@ class PostListView(ListView):
             ).filter(rank__gte=0.3).order_by('-rank')
         if category:
             queryset = Post.objects.filter(category__icontains=category)
-            print(queryset)
+            #print(queryset)
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        #category = self.kwargs.get('category')
         context["tag"] = self.kwargs.get('tag_slug')
         context["query"] = self.request.GET.get('query')
+        context['url'] = self.kwargs.get('category')
         return context
 
 

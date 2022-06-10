@@ -19,6 +19,6 @@ urlpatterns = [
          PostDetailView.as_view(), name='post_detail'),
     path('<int:post_id>/share/', PostShareView.as_view(), name='post_share'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
-    path('new-post/', AddBlog.as_view(), name='new-post'),
+    path('admin/new-post/', AddBlog.as_view(), name='new-post'),
     #path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
