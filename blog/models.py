@@ -34,6 +34,7 @@ class Post(models.Model):
         choices=STATUS_CHOICES,
         default='draft'
     )
+    category = models.CharField(max_length=20, choices=(('politics','politics'),('Techs','Techs'),('News','News')), default='News')
 
     objects = models.Manager()
     published = PublishedManager()

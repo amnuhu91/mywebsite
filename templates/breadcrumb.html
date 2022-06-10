@@ -1,9 +1,13 @@
+
 <div class="container-fluid  pt-3">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb  ">
+<nav aria-label="breadcrumb" style="background-color:white">
+  <ol class="breadcrumb  " style="background-color:white">
     <li class="breadcrumb-item"><a href="{% url 'about_me:home' %}">Home</a></li>
     <li class="breadcrumb-item"><a href="{% url 'blog:post_list' %}">Blog</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
+    {% if object.title %}
+    <li class="breadcrumb-item"><a href="{% url 'blog:post_list_cat' object.category %}">{{object.category}}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ object.title }}</li>
+    {% endif %}
   </ol>
 </nav>
 </div>

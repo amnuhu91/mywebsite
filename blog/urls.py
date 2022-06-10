@@ -12,6 +12,7 @@ app_name = 'blog'
 
 urlpatterns = [
     path('', PostListView.as_view(), name='post_list'),
+    path('<str:category>/', PostListView.as_view(), name='post_list_cat'),
     path('tag/<slug:tag_slug>/', PostListView.as_view(),
          name='post_list_by_tag'),
     path('<int:year>/<int:month>/<int:day>/<slug:slug>/',

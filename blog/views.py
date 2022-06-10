@@ -31,14 +31,8 @@ class AddBlog(SuperUserRequiredMixin, CreateView):
         self.object.author = self.request.user
         #self.object.slug = self.request.title
         self.object.save()
+        form.save_m2m()
         return HttpResponseRedirect(self.get_success_url())
-
-
-
-
-
-
-
 
 
 
@@ -46,10 +40,16 @@ class PostListView(ListView):
     paginate_by = 5
     template_name = 'blog/post-list.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        print(request.path)
+        return super(PostListView,self).dispatch(request, *args, **kwargs)
+
     def get_queryset(self, **kwargs):
         queryset = Post.published.all()
         tag_slug = self.kwargs.get('tag_slug')
         query = self.request.GET.get('query')
+        category = self.kwargs.get('category')
+        print(category)
         if tag_slug:
             tag = get_object_or_404(Tag, slug=tag_slug)
             queryset = queryset.filter(tags__in=[tag])
@@ -61,6 +61,9 @@ class PostListView(ListView):
             queryset = Post.published.annotate(
                 rank=SearchRank(search_vector, search_query)
             ).filter(rank__gte=0.3).order_by('-rank')
+        if category:
+            queryset = Post.objects.filter(category__icontains=category)
+            print(queryset)
         return queryset
 
     def get_context_data(self, **kwargs):
