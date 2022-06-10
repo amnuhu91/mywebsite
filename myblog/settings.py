@@ -105,11 +105,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         #'NAME': BASE_DIR / 'db.sqlite3',
         
-        'NAME':'d5k4ph13fu6k4h',
-        'USER':'udwaqzfhmfecch',
-        'PASSWORD':'b9e0418235fda717ff111fb5c0ef603cc350bb31a58ccd708633f296418b0cd4',
-        'HOST':'ec2-44-196-250-191.compute-1.amazonaws.com',
+        'NAME':'ddtekq1s61dsid',
+        'USER':'lrnvrotvqdhdol',
+        'PASSWORD':'3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938',
+        'HOST':'ec2-34-225-159-178.compute-1.amazonaws.com',
         'PORT':5432
+#         URI
+# postgres://lrnvrotvqdhdol:3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938@ec2-34-225-159-178.compute-1.amazonaws.com:5432/ddtekq1s61dsid
+# Heroku CLI
+# heroku pg:psql postgresql-concentric-20472 --app programminghero
     }
 }
 
