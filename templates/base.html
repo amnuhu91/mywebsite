@@ -36,6 +36,8 @@
                   <link href="{% static 'blog/css/style.css' %}" rel="stylesheet">
 
                   {% endblock custom_css  %}
+                  {% block add_css %}
+                  {% endblock add_css %}
                   <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
                   <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
                   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -107,7 +109,11 @@
           {% block jss%}
                 
           <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-                            
+           <!--  <script type="text/javascript">
+              $(Document).ready(function(){
+                $('#mymodal').show()
+              })
+          </script>    -->    
           <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
             
                 <script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
@@ -132,6 +138,7 @@
           <script type="text/babel" src="{% static 'ContactComp.js' %}"></script>
           <script type="text/babel" src="{% static 'TopLanding.js' %}"></script>
           <script type="text/babel" src="{% static 'OrgChart.js' %}"></script>
+          <script type="text/babel" src="{% static 'FlashMessageComp.js' %}"></script>
           <script type="text/babel">
 
 const data = [{
@@ -203,6 +210,7 @@ const data = [{
                     });  
             })
           </script>
+          
           
         </body>
 </html>  

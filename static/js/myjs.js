@@ -66,9 +66,12 @@ $(document).ready(function(){
 
   //addde
   
+//modal
 
 
 });
+
+
 
 
 

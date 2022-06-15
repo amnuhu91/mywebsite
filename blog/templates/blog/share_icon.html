@@ -1,0 +1,31 @@
+{% load social_share %}
+{% block add_css %}
+<style type="text/css">
+	.fab{
+		font-size: 2.5rem;
+	}
+	.fa-whatsapp-square{
+		color: #59CE72;
+	}
+	.fa-google-plus-square{
+		color: #DB4437;
+	}
+	.fa-facebook-square{
+		color: #4267B2;
+	}
+</style>
+{% endblock add_css%}
+<div class="row m-2 " style="width:100%">
+	<div class="col-2 p-3" >
+		<h6>Share on:</h6>
+	</div>
+	<div class="col-10 d-inline-flex justify-content-around p-3">
+		<div>{% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp-square fa-lg"></i>' %}</div>
+		<div>{% post_to_facebook object_or_url '<i class="fab fa-facebook-square fa-lg"></i>' %}</div>
+		<div>{% post_to_twitter object.title  object_or_url  '<i class="fab fa-twitter-square fa-lg"></i>' %}</div>
+		<div>{% send_email object.title  "Read About: {{object.body | truncatewords:'150'}} at:"  object_or_url  '<i class="fab fa-google-plus-square fa-lg"></i>'  %}</div>
+		
+		
+
+	</div>
+</div>

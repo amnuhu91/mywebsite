@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'taggit',
     'ckeditor_uploader',
     'django_bootstrap_breadcrumbs',
+    'django_social_share',
 ]
 
 MIDDLEWARE = [
