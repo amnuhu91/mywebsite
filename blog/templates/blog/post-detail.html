@@ -36,7 +36,7 @@
         <hr>
           {{ object.body | safe }}
         <hr>
-        <a href="{% url 'blog:post_share' object.id %}" class="btn btn-info mb-3">Share this post</a>
+<!--        <a href="{% url 'blog:post_share' object.id %}" class="btn btn-info mb-3">Share this post</a>-->
         <!-- {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp fa-lg"></i>' %} -->
         {% include 'blog/share_icon.html' %}
         <h3 class="bg-primary p-2 text-white mb-3">Similar posts</h3>
