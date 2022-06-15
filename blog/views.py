@@ -16,6 +16,7 @@ from blog.models import Post
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from slugify import slugify
+import requests as rq
 
 class SuperUserRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
 
@@ -148,3 +149,27 @@ class PostShareView(FormView):
         context['sent'] = True
         context['form'] = form
         return self.render_to_response(context)
+
+
+def get_news(request,category='business',country='ng'):
+    country = country
+    category = category
+    api_key = "afe93d1a9da34815947707f91bef5284"
+    url = f"https://newsapi.org/v2/top-headlines?country={country}&category={category}&apiKey={api_key}"
+    
+    
+    
+    try:
+
+        response = rq.get(url, timeout=5)
+    except Exception as e:
+        #raise e
+        print("request timeout")
+    else:
+        print("we get news from api")
+        print(url)
+        news = response.json()
+        print(news["articles"][0])
+
+    return render(request,'blog/news.htm', {})
+

@@ -4,7 +4,7 @@ from blog.views import (
     PostListView,
     PostDetailView,
     PostShareView,
-    AddBlog
+    AddBlog,get_news
 )
 from .feeds import LatestPostsFeed
 
@@ -20,5 +20,5 @@ urlpatterns = [
     path('<int:post_id>/share/', PostShareView.as_view(), name='post_share'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
     path('admin/new-post/', AddBlog.as_view(), name='new-post'),
-    #path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('news/<str:country>/<str:category>',get_news, name ='get_news')
 ]

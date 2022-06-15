@@ -20,8 +20,8 @@
 		<h6>Share on:</h6>
 	</div>
 	<div class="col-10 d-inline-flex justify-content-around p-3">
-		<div>{% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp-square fa-lg"></i>' %}</div>
-		<div>{% post_to_facebook object_or_url '<i class="fab fa-facebook-square fa-lg"></i>' %}</div>
+		<div>{% post_to_whatsapp  object_or_url '<i class="fab fa-whatsapp-square fa-lg"></i>' %}</div>
+		<div>{% post_to_facebook  object_or_url '<i class="fab fa-facebook-square fa-lg"></i>' %}</div>
 		<div>{% post_to_twitter object.title  object_or_url  '<i class="fab fa-twitter-square fa-lg"></i>' %}</div>
 		<div>{% send_email object.title  "Read About: {{object.body | truncatewords:'150'}} at:"  object_or_url  '<i class="fab fa-google-plus-square fa-lg"></i>'  %}</div>
 		
