@@ -3,11 +3,13 @@ from django.views.generic import ListView, DetailView
 from django.contrib.postgres.search import (
     SearchVector, SearchQuery, SearchRank
 )
+from django.views.decorators.cache import cache_page
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic.edit import FormMixin, FormView
 from django.core.mail import send_mail
 from django.db.models import Count
 from taggit.models import Tag
+import requests_cache
 
 from .models import Post, Comment
 from .forms import CommentForm, EmailPostForm, PostBlog
@@ -150,19 +152,19 @@ class PostShareView(FormView):
         context['form'] = form
         return self.render_to_response(context)
 
-
+@cache_page(60*20)
 def get_news(request,category='business',country='ng'):
     country = country
     category = category
     data = ''
     api_key = "afe93d1a9da34815947707f91bef5284"
     url = f"https://newsapi.org/v2/top-headlines?country={country}&category={category}&apiKey={api_key}"
-    
+    sessions = requests_cache.CachedSession('demo_cache')
     
     
     try:
 
-        response = rq.get(url, timeout=5)
+        response = sessions.get(url, timeout=5)
     except Exception as e:
         #raise e
         print("request timeout")
