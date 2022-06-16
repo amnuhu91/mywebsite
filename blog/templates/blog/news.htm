@@ -1,1 +1,16 @@
 {% extends 'base.html' %}
+
+{% block content %}
+{{data}}
+{% if news|length > 0 %}
+{% for n in news %}
+<h1>{{n.title}}</h1>
+<p>{{n.description|truncatewords:"20"}}</p>
+{% empty %}
+<p>no news</p>
+{% endfor %}
+{% else %}
+<p>news less than 20</p>
+{% endif %}
+
+{% endblock content %}

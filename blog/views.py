@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.postgres.search import (
     SearchVector, SearchQuery, SearchRank
 )
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic.edit import FormMixin, FormView
 from django.core.mail import send_mail
 from django.db.models import Count
@@ -154,6 +154,7 @@ class PostShareView(FormView):
 def get_news(request,category='business',country='ng'):
     country = country
     category = category
+    data = ''
     api_key = "afe93d1a9da34815947707f91bef5284"
     url = f"https://newsapi.org/v2/top-headlines?country={country}&category={category}&apiKey={api_key}"
     
@@ -165,11 +166,16 @@ def get_news(request,category='business',country='ng'):
     except Exception as e:
         #raise e
         print("request timeout")
+        data = 'request timeout'
     else:
         print("we get news from api")
         print(url)
         news = response.json()
-        print(news["articles"][0])
+        print(news["articles"][:5])
+        print('*'*20)
+        print(news["articles"][0]["title"])
+        data = "yes there is a news"
 
-    return render(request,'blog/news.htm', {})
+        return render(request,'blog/news.htm', {"data":data,"news":news["articles"]})
+    return HttpResponse("request timeout")
 
