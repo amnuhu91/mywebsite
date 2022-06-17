@@ -76,7 +76,7 @@ class BackendCourseDetail(APIView):
 
 	def put(self,request,pk,format=None):
 		b_course = self.get_object(pk)
-		serializer = BackendSerializer(b_course, date_added=request.data)
+		serializer = BackendSerializer(b_course, data=request.data)
 		if serializer.is_valid():
 			serializer.save()
 			return Response(serializer.data)

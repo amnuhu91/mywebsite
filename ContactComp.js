@@ -24,10 +24,10 @@ var EmailUsComp = function EmailUsComp() {
   };
   var handlesubmit = function handlesubmit(e) {
     e.preventDefault();
-    // console.log("message", message);
+     console.log("message", message);
   };
 
-  //console.log(message);
+  console.log(message);
   return React.createElement(
     "div",
     {
