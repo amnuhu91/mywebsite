@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from about_me.models import ContactUs, BackEndCourse
-
+from blog.models import Post
 
 
 
@@ -21,4 +21,12 @@ class BackendSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = BackEndCourse
 		fields = '__all__'
+
+
+class PostSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Post
+		#fields = '__all__'
+		exclude =['author','slug']
+
 

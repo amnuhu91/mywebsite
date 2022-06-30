@@ -223,9 +223,23 @@ CORS_ORIGIN_WHITELIST = [
 django_heroku.settings(locals())
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'amnuhu91'
+# EMAIL_HOST_PASSWORD = 'aliyu#@91'
 #ckeditor
 def get_filename(filename):
     return filename.upper()
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 #CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}

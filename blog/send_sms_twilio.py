@@ -1,26 +1,37 @@
 from twilio.rest import Client 
  
 account_sid = 'AC77c58d059917dee5f2198c168f66d8b2' 
-auth_token = '5955a2ea52879ab2886a6ef7494d3fa5' 
-
- 
-# Download the helper library from https://www.twilio.com/docs/python/install
+auth_token = '10c70247d9cd5be501732a956fc53385' 
 
 
+# client = Client(account_sid, auth_token)
 
-# Find your Account SID and Auth Token at twilio.com/console
-# and set the environment variables. See http://twil.io/secure
-#account_sid =  #os.environ['TWILIO_ACCOUNT_SID']
-#auth_token = #os.environ['TWILIO_AUTH_TOKEN']
-client = Client(account_sid, auth_token)
+# message = client.messages \
+#                 .create(
+#                      body="Join Earth's mightiest heroes. Like Kevin Bacon.",
+#                      from_='+18508217243',
+#                      to='+2348064790955'
+#                  )
 
-message = client.messages \
-                .create(
-                     body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-                     from_='+18508217243',
-                     to='+2348064790955'
-                 )
-
-print(message)
+# print(message)
 
 #+18508217243
+
+
+#account_sid = 'AC77c58d059917dee5f2198c168f66d8b2' 
+#auth_token = '[AuthToken]' 
+
+
+
+def send_whatsapp_message(msg,sender='+14155238886',receiver='+2348064790955'):
+    client = Client(account_sid, auth_token) 
+ 
+    message = client.messages.create( 
+                              from_=f'whatsapp:{sender}',  
+                              body=msg,      
+                              to=f'whatsapp:{receiver}' 
+                          ) 
+    #print(message.sid)
+
+#send_whatsapp_message(msg="welcome to new world")
+ 
