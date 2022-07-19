@@ -146,7 +146,7 @@ class PostDetail(APIView):
 		if serializer.is_valid():
 			post=serializer.save(author=self.request.user)
 			time = datetime.now()
-			message =f'A post with title of \"{post.title}\" is update on {time.strftime("%d/%m/Y")} at { time.strftime("%I:%M:%S")}'
+			message =f'A post with title of \"{post.title}\" is update on {time.strftime("%d/%m/%Y")} at { time.strftime("%I:%M:%S")}'
 			send_whatsapp_message(msg=message)
 			return Response(serializer.data)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
