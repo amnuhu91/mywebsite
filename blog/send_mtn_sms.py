@@ -5,3 +5,4 @@ phone = '+19785064523'
 
 
 recovery code = 'xcs4QprB5Q4nqPzLNlnNlR5D3An9uM9i3Aq2EOgn'
+recovery code2 ='1aHzd7vqIV5_H10FqA8816K6sonpm6LmzvQEFo7u'
