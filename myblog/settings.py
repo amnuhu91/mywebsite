@@ -104,15 +104,15 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
-        #'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
+        #'ENGINE': 'django.db.backends.postgresql',
+        'NAME': BASE_DIR / 'db.sqlite3',
         
-        'NAME':'ddtekq1s61dsid',
-        'USER':'lrnvrotvqdhdol',
-        'PASSWORD':'3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938',
-        'HOST':'ec2-34-225-159-178.compute-1.amazonaws.com',
-        'PORT':5432
+        #'NAME':'ddtekq1s61dsid',
+        #'USER':'lrnvrotvqdhdol',
+        #'PASSWORD':'3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938',
+        #'HOST':'ec2-34-225-159-178.compute-1.amazonaws.com',
+        #'PORT':5432
 #         URI
 # postgres://lrnvrotvqdhdol:3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938@ec2-34-225-159-178.compute-1.amazonaws.com:5432/ddtekq1s61dsid
 # Heroku CLI

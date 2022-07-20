@@ -12,7 +12,7 @@ from about_me.models import ContactUs, BackEndCourse
 from api.serializers import ContactUsSerializer, BackendSerializer, PostSerializer
 from blog.models import Post
 from blog.send_sms_twilio import send_whatsapp_message
-
+ 
 #@csrf_exempt
 @api_view(['GET', 'POST'])
 def contact_list(request, format=None):
@@ -76,7 +76,7 @@ class BackendCourseList(APIView):
 			message = f'New course {course_name} is added on {date} with status of {cstatus}'
 			send_whatsapp_message(msg=message)
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
-		return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class BackendCourseDetail(APIView):
@@ -85,6 +85,7 @@ class BackendCourseDetail(APIView):
 			return BackEndCourse.objects.get(pk=pk)
 		except BackEndCourse.DoesNotExist:
 			raise Http404
+
 	def get(self,request,pk,format=None):
 		b_course = self.get_object(pk)
 		serializer = BackendSerializer(b_course)

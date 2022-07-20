@@ -1,3 +1,4 @@
+from turtle import title
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
@@ -8,6 +9,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from slugify import slugify
 from taggit.managers import TaggableManager
 import readtime
+from blog.send_sms_twilio import send_whatsapp_message
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -51,6 +53,9 @@ class Post(models.Model):
 
         # call the save() method of the parent
         super(Post, self).save(*args, **kwargs)
+        message = f'New post \" {self.title}\" is added on {self.created}'
+
+        send_whatsapp_message(msg=message)
 
     def get_absolute_url(self):
         return reverse(
