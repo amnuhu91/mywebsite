@@ -53,9 +53,9 @@ class Post(models.Model):
 
         # call the save() method of the parent
         super(Post, self).save(*args, **kwargs)
-        message = f'New post \" {self.title}\" is added on {self.created}'
+        #message = f'New post \" {self.title}\" is added on {self.created}'
 
-        send_whatsapp_message(msg=message)
+        #send_whatsapp_message(msg=message)
 
     def get_absolute_url(self):
         return reverse(
