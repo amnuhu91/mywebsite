@@ -12,10 +12,42 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import django_heroku
 from pathlib import Path
+import urllib.request
+#from internet_connection import check_internet
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+def check_internet(host="https://www.google.com"):
+    DATABASE ={}
+    try:
+        urllib.request.urlopen(host)
+        
+        DATABASE= {
+            'ENGINE': 'django.db.backends.postgresql',
+        
+        
+        'NAME':'ddtekq1s61dsid',
+        'USER':'lrnvrotvqdhdol',
+        'PASSWORD':'3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938',
+        'HOST':'ec2-34-225-159-178.compute-1.amazonaws.com',
+        'PORT':5432
+        }
+        print("there is internet the database is set to heroku postgress")
+        return DATABASE
+    except:
+        DATABASE ={
+             'ENGINE': 'django.db.backends.sqlite3',
+        
+        'NAME': BASE_DIR / 'db.sqlite3',
+        }
+        print("no internet the adabase is set to default sqlite")
+        return DATABASE
+
+    
+
+
+#check_internet()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -26,8 +58,11 @@ SECRET_KEY = 'django-insecure-s5!to1jn&(sctsauinipai+hm@4k+_irdh6%_)oqltou9cm-j0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CORS_ALLOW_ALL_ORIGINS=True
 ALLOWED_HOSTS = [ 'https://programminghero.herokuapp.com/',
                     'http://127.0.0.1:8000/',
+                    'http://localhost:3000/',
+                    'https://amnsolution.vercel.app/',
         ]
 
 
@@ -103,21 +138,21 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default':check_internet() #{
         #'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
+        #'ENGINE': 'django.db.backends.postgresql',
         #'NAME': BASE_DIR / 'db.sqlite3',
         
-        'NAME':'ddtekq1s61dsid',
-        'USER':'lrnvrotvqdhdol',
-        'PASSWORD':'3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938',
-        'HOST':'ec2-34-225-159-178.compute-1.amazonaws.com',
-        'PORT':5432
-#         URI
-# postgres://lrnvrotvqdhdol:3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938@ec2-34-225-159-178.compute-1.amazonaws.com:5432/ddtekq1s61dsid
-# Heroku CLI
-# heroku pg:psql postgresql-concentric-20472 --app programminghero
-    }
+#         'NAME':'ddtekq1s61dsid',
+#         'USER':'lrnvrotvqdhdol',
+#         'PASSWORD':'3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938',
+#         'HOST':'ec2-34-225-159-178.compute-1.amazonaws.com',
+#         'PORT':5432
+# #         URI
+# # postgres://lrnvrotvqdhdol:3559911b6b0f980dc17b2381a5156416a043ac3e17b0caed8827ce504b958938@ec2-34-225-159-178.compute-1.amazonaws.com:5432/ddtekq1s61dsid
+# # Heroku CLI
+# # heroku pg:psql postgresql-concentric-20472 --app programminghero
+#     }
 }
 
 
@@ -216,8 +251,33 @@ CORS_ORIGIN_WHITELIST = [
 
        'http://127.0.0.1:8000',
        'https://programminghero.herokuapp.com',
+       'https://localhost:3000',
 
 ]
+# CORS_ORIGIN_ALLOW_ALL = True
+
+# CORS_ALLOW_CREDENTIALS = True
+
+
+# CORS_ALLOW_METHODS = [
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# ]
+# CORS_ALLOW_HEADERS = [
+#     "accept",
+#     "accept-encoding",
+#     "authorization",
+#     "content-type",
+#     "dnt",
+#     "origin",
+#     "user-agent",
+#     "x-csrftoken",
+#     "x-requested-with",
+# ]
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

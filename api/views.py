@@ -14,6 +14,22 @@ from blog.models import Post
 from blog.send_sms_twilio import send_whatsapp_message
  
 #@csrf_exempt
+@api_view(['GET'])
+def check_email(request,email):
+	if request.method == 'GET' and len(email) >= 5:
+		
+		
+		email = ContactUs.objects.filter(email=email).exists()
+		serializer = ContactUsSerializer(email)
+		print(email)
+		return JsonResponse(email, safe=False)
+		
+	
+
+		
+		
+
+
 @api_view(['GET', 'POST'])
 def contact_list(request, format=None):
 	time = datetime.now()
@@ -25,10 +41,11 @@ def contact_list(request, format=None):
 		#data = JSONParser().parse(request)
 		serializer = ContactUsSerializer(data=request.data)
 		if serializer.is_valid():
+			#print(serializer.validated_data)
 			msg=serializer.save()
 
 			email_smg = f'You have a message from {msg.name} with email: {msg.email}. Message: \"{msg.message}\" on {time.strftime("%d/%m/Y")} at {time.strftime("%I:%M:%S")} '
-			send_whatsapp_message(msg=email_smg)
+			#send_whatsapp_message(msg=email_smg)
 			return Response(serializer.data,status=status.HTTP_201_CREATED)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

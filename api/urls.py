@@ -5,6 +5,7 @@ from api import views
 
 urlpatterns = [
     path('contacts/', views.contact_list),
+    path('checkmail/<str:email>/', views.check_email),
     path('contact/<int:pk>/', views.contact_detail),
     path('back-end/', views.BackendCourseList.as_view()),
     path('back-end/<int:pk>/', views.BackendCourseDetail.as_view()),

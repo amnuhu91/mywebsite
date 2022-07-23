@@ -10,7 +10,7 @@ class PhoneContact(models.Model):
 
 
 class EmailContact(models.Model):
-    email = models.EmailField(verbose_name="email", unique=True)
+    email = models.EmailField(verbose_name="email")
     status                      = models.BooleanField(default=True)
     def __str__(self):
         return self.email
@@ -72,7 +72,7 @@ class FrontEndTopics(models.Model):
 
 class ContactUs(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True)
-    email = models.EmailField(max_length=200, unique=True)
+    email = models.EmailField(max_length=200)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
